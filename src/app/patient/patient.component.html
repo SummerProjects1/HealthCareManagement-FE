@@ -1,0 +1,70 @@
+
+<!-- <div class='container' *ngIf="toggleAppointmentForm">
+	<app-appointment></app-appointment>
+</div>
+<div class='container'>
+	<app-appointment-list></app-appointment-list>
+</div>
+
+<div class='panel panel-primary'>
+	<div class='panel-heading'>
+		{{prescriptionTitle}}	
+	</div>
+	<div class='panel-body'>
+	
+	
+	</div>
+</div> -->
+
+<div class="container-fluid text-center">
+	<div class="row content">
+		<div class="col-sm-2 sidenav">
+			<br> <br>
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="showAppointmentForm()">Make An Appointment</button>
+			<br> <br>
+
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="showProfileForm()">View Profile</button>
+			<br> <br>
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="showAppointmentForm()">View Doctors</button>
+			<br> <br>
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="showAppointmentForm()">View Doctors</button>
+			<br> <br>
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="showAppointmentForm()">View Doctors</button>
+
+		</div>
+		<div class="col-sm-8 text-left">
+			<br> <br>
+			<div class="container-fluid text-center"
+				*ngIf="toggleAppointmentForm">
+				<app-appointment></app-appointment>
+			</div>
+			<div class="container-fluid text-center"
+				*ngIf="toggleProfileForm">
+				<app-patient-profile></app-patient-profile>
+			</div>
+			<div class="container-fluid text-center" *ngIf="toggleAppointmentList">
+				<app-appointment-list></app-appointment-list>
+			</div>
+			<div class="container-fluid text-center" *ngIf="togglePrescriptionList">
+				<app-appointment-list></app-appointment-list>
+			</div>
+			<!-- <div class='panel panel-primary'>
+				<div class='panel-heading'>{{prescriptionTitle}}</div>
+				<div class='panel-body'><app-appointment-list></app-appointment-list></div>
+			</div> -->
+		</div>
+		<div class="col-sm-2 sidenav">
+			<div class="well">
+				<p>ADS</p>
+			</div>
+			<div class="well">
+				<p>ADS</p>
+			</div>
+		</div>
+	</div>
+</div>

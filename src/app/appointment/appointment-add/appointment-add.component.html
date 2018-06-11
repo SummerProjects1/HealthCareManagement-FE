@@ -1,0 +1,35 @@
+<div class='panel panel-primary'>
+	<div class='panel-heading'>
+		{{addAppointmentTitle}}	
+	</div>
+	<div class='panel-body'>
+		<div>
+			<form class="form-inline" #frm="ngForm" (ngSubmit) = "makeAppointment(frm)">
+				<div class="form-group">
+					<div class="form-group">
+						<label for="">Appointment Type:</label><br><input type="text"
+							class="form-control" name="appointmentType" value="" ngModel>
+					</div><br>
+					<div class="form-group">
+						<label for="">Doctor:</label><br><input type="text"
+							class="form-control" name="doctorName" value="" ngModel>
+					</div><br>
+					<div class="form-group">
+						<label for="">Date:</label><br><input type="text"
+							class="form-control" name="appointDate" value="" ngModel>
+					</div><br>
+					<div class="form-group">
+						<label for="">Time:</label><br><input type="text"
+							class="form-control" name="appointTime" value="" ngModel>
+					</div><br>
+					<div class="form-group">
+						<label for="">Message:</label><br><input type="text"
+							class="form-control" name="appointMessage" value="" ngModel>
+					</div><br>
+					<div class="form-group"><button type="submit" name="button" class="btn btn-success">Save</button><p></p></div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+

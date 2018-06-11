@@ -1,0 +1,52 @@
+<div>
+	<form class="form-inline" #frm="ngForm"
+		(ngSubmit)="savePatientDetails(frm)">
+		<div class="form-group" *ngIf="patient !== undefined">
+			<div class="form-group">
+				<label for="">User Name:</label><br>
+				<input type="text" class="form-control" name="userName" value=""
+					[(ngModel)]="patient.userName" readonly>
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="">First Name:</label> <br>
+				<input type="text" class="form-control" name="firstName" value=""
+					[ngModel]="patient.firstName" />
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="">Last Name:</label><br> <input type="text"
+					class="form-control" name="lastName" value=""
+					[ngModel]="patient.lastName" />
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="">Password:</label> <br>
+				<input type="text" class="form-control" name="password" value=""
+					[ngModel]="patient.password" />
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="">Address:</label> <br>
+				<input type="text" class="form-control" name="address" value=""
+					[ngModel]="patient.address" />
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="">Contact Number:</label> <br><input type="text"
+					class="form-control" name="contactNumber" value=""
+					[ngModel]="patient.contactNumber" />
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="">Email:</label> <br><input type="text" class="form-control"
+					name="email" value="" [ngModel]="patient.email" />
+			</div>
+			<br><br>
+			<button type="submit" name="button" class="btn btn-success">Save</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="submit" name="button" class="btn btn-primary"
+				(click)="showEditForm(appointment)">Cancel</button>
+		</div>
+	</form>
+</div>
