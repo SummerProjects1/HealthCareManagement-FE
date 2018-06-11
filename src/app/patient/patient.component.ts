@@ -19,6 +19,7 @@ export class PatientComponent implements OnInit {
   ngOnInit() {
   }
 
+  // show and hiding the components
   showAppointmentForm() {
     this.toggleAppointmentForm = !this.toggleAppointmentForm;
     this.togglePrescriptionList = !this.togglePrescriptionList;
