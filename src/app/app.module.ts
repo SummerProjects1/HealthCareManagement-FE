@@ -9,6 +9,7 @@ import { LoginComponent } from './home/login/login.component';
 import { HomeModule } from './home/home.module';
 import { PatientModule } from './patient/patient.module';
 
+
 const appRoutes: Routes = [
   { path: 'home', component: LoginComponent}
 ];
@@ -17,7 +18,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent
-    
   ],
   imports: [
     BrowserModule,
