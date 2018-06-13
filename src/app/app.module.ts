@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { HomeModule } from './home/home.module';
 import { PatientModule } from './patient/patient.module';
+//import { AdminModule } from './admin/admin.module';
 
 
 const appRoutes: Routes = [
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     HomeModule,
+    //AdminModule,
     PatientModule,
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
