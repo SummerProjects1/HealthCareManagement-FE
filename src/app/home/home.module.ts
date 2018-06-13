@@ -8,8 +8,8 @@ import { ChangePasswordComponent } from './login/password/change-password.compon
 import { RegisterComponent } from './register/register.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
-import { AdminDashboardComponent } from '../admin/admin-dashboard/admin-dashboard.component';
-import { AdminDashboardModule } from '../admin/admin-dashboard/admin-dashboard.module';
+import { AdminComponent } from '../admin/admin.component';
+import { AdminModule } from '../admin/admin.module';
 import { PatientComponent } from '../patient/patient.component';
 import { PatientModule } from '../patient/patient.module';
 import { DoctorComponent } from '../doctor/doctor.component';
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'forgotPassword', component: ForgotPasswordComponent},
   { path: 'changePassword', component: ChangePasswordComponent},
-  { path: 'adminDashboard', component: AdminDashboardComponent},
+  { path: 'admin', component: AdminComponent},
   { path: 'patient', component: PatientComponent},
   { path: 'doctor', component: DoctorComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'}
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
 
   imports: [
     CommonModule,
-    AdminDashboardModule,
+    AdminModule,
     PatientModule,
     DoctorModule,
     RouterModule.forRoot(appRoutes, { useHash: true })

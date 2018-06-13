@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     
     
     if(username == 'admin' && password == 'admin'){
-      this.router.navigate(['adminDashboard']);
+      this.router.navigate(['admin']);
     }
     if(username == 'patient' && password == 'patient'){
       this.router.navigate(['patient']);
