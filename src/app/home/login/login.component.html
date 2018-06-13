@@ -1,0 +1,28 @@
+<div class = "container-fluid navmiddle" >
+  <div class = "left ">
+      <h1 class=" wow bounceInDown animated imgtext  "> We Care For You..!</h1>
+      <br/>
+      <p class="wow bounceInUp animated imgpara">Home Health Care for Seniors.We'll treat you with the best of our care.</p>
+  </div>
+  
+  <div class = "right">
+    <div class="account-wall">
+              <img class="profile-img center-block" src="/assets/images/login1.jpg" alt="">
+              <form class="form-signin" (submit)="loginUser($event)">
+                <input type="text" id = "username" class="form-control" placeholder="Username" required autofocus><br />
+                <input type="password" id="pwd" class="form-control" placeholder="Password" required><br/>
+                <input type="radio" class="roleinital" name="adminRole" value="admin"><span class="roletext">Admin</span>
+                <input type="radio" class="role" name="doctorRole" value="doctor"><span class="roletext">Doctor</span>
+                <input type="radio" class="role" name="patientRole" value="patient"><span class="roletext">Patient</span>
+                <br/><br/><br/>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me">
+                    Remember me
+                </label>
+                <a routerLink="/forgotPassword" class="pull-right forgot-password">Forgot Password </a><span class="clearfix"></span>
+                <a routerLink="/changePassword" class="pull-right change-password">Change Password </a><span class="clearfix"></span>
+              </form>
+          </div>
+  </div>
+</div>

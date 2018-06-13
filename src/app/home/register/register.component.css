@@ -1,0 +1,155 @@
+.regdiv{
+	background:linear-gradient(#092b4c,white);
+	/*background: linear-gradient(skyblue, white);*/
+	width:auto;
+	height:1500px;
+}
+
+
+.registerform{
+	width:auto;
+	margin:auto;
+	background:white;
+	height:95%;
+	margin: 20px 50px 50px 50px;
+	box-shadow: 2px 2px 2px 2px grey;
+		
+}
+
+.headertext{
+	color:	darksilver;
+	text-align:center;
+	padding:50px 0 5px 0;
+}
+
+
+
+hr{
+	    border-top: 1px solid #ccc;
+	    width:90%;
+}
+
+.left{
+	position:relative;
+	display:inline;
+	float:left;
+	height:50%;
+	width:45%;
+	margin:0 0 0 50px;
+	background:pink;
+}
+
+.right{
+	overflow:hidden;
+	height:50%;
+	width: auto;
+	margin:0 50px 0 0;
+	background:yellow;
+}
+
+.input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.labeltext{
+	color:black;
+	font-weight:bold;
+	padding:5px 20px; 
+	margin-left:10%;
+}
+
+.icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center; 
+       
+}
+
+/* table,th, td{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+ */
+th,td{
+	text-align:right;
+}
+
+.field-class {
+	width:400px;
+}
+
+.label-class{
+	width:200px;
+}
+
+.address{
+	font-size:25px;
+	
+	height:60px;
+	width:400px;
+	text-align:middle;
+}
+
+.basicinfo{
+	font-size:25px;
+	height:60px;
+	width:200px;
+	text-align:middle;
+}
+
+
+  
+/* radio button*/
+
+.radiobutton{
+	position:relative;
+	margin-right:100px;
+	text-align:left;
+}
+
+
+
+/*end*/
+
+
+.input-field {
+	display: -ms-flexbox;
+    display: flex;
+    width: 70%;
+    /*padding: 10px;*/
+    outline: none;
+    float:middle;
+}
+
+.input-field:focus {
+    border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+    background-color: lightgrey;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    opacity: 0.9;
+    margin-left:300px;
+    height:50px;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.gender{
+	width:150px;	
+}
+.form-control{
+	width:300px;	
+}

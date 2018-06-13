@@ -1,0 +1,154 @@
+/* Login Block */
+.container-fluid{
+	height:100%;
+	overflow:hidden;
+}
+/* Right Division */
+.right{
+	overflow:hidden;
+	height:100%;
+	width: auto;
+}
+
+.account-wall
+{
+    background-color: teal;
+    background: linear-gradient(#092b4c, silver);
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 10%;
+    box-shadow:1px 1px 1px 1px grey;
+    padding: 20px 20px 20px 20px;
+    
+}
+
+.profile-img
+{
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 30px;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid grey;
+}
+
+.form-signin
+{
+    /*max-width: 500px;
+    padding: 15px;
+    margin: 0 auto;*/
+    padding: 0 60px 0 60px; ;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+    margin-bottom: 10px;
+}
+
+.checkbox
+{
+    font-weight: normal;
+    color: black;
+	float:left;	
+}
+
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+
+.form-signin input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-radius: 150px;
+    border-color: blue;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-radius: 150px;
+    border-color: blue;
+}
+
+.role{
+	margin-left:25px;
+	text-align:center;
+}
+
+.roleintial{
+	text-align:center;
+}
+
+.roletext{
+	color:black;
+	font-weight:bold;
+}
+
+.forgot-password
+{
+    margin-top: 15px;
+    color: black;
+}
+
+.change-password
+{
+    color: black;
+}
+
+
+/*Right Block ends*/
+
+
+.left{
+	position:relative;
+	display:inline;
+	float:left;
+	height:100%;
+	width:60%;
+	
+}
+
+.navmiddle{
+	background: url('/assets/images/background.png')  no-repeat;
+	background-size:cover;
+	height: 100%;
+	width:100%;
+	text-align:center;
+	position:relative;
+}
+
+.imgtext{
+	display:inline-block;
+	vertical-align:middle;
+	margin-top:210px;
+	color:white;
+	font-size: 35px;
+	font-weight:bold;
+	text-shadow: 2px 1px grey;
+	animation-duration:1.5s;
+}
+
+.imgpara{
+	display:inline-block;
+	vertical-align:middle;
+	color:white;
+	font-size:17px;
+	text-shadow: 1px 1px grey;
+	animation-delay: 1s;
+	animation-duration:2s;
+}
