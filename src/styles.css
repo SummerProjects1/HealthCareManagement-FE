@@ -1,1 +1,39 @@
- /*styles*/
+/* You can add global styles to this file, and also import other style files */
+html,body{
+	height:100%;
+	/*overflow:hidden;*/
+}
+
+* {box-sizing: border-box;}
+
+.navtop{
+	background:Teal;
+	height:35px;
+}
+
+footer{
+	margin-top: 20px;
+	background-color: darkcyan;
+	color: white;
+	font-weight: bold;
+	bottom: 0px;
+	position: fixed;
+	width: 100%;
+	padding-top: 2px;
+	height:25px;
+}
+
+.header {
+	color: white;
+	font-weight: bold;
+	font-style: italic;
+	float: right;
+	margin-top: 0.5%;
+}
+.welcome{
+	color: white;
+	font-weight: bold;
+	float:left;
+	margin-top: 0.5%;
+	font-style:italic;
+}
