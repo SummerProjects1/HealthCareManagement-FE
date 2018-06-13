@@ -12,6 +12,8 @@ import { AdminDashboardComponent } from '../admin/admin-dashboard/admin-dashboar
 import { AdminDashboardModule } from '../admin/admin-dashboard/admin-dashboard.module';
 import { PatientComponent } from '../patient/patient.component';
 import { PatientModule } from '../patient/patient.module';
+import { DoctorComponent } from '../doctor/doctor.component';
+import { DoctorModule } from '../doctor/doctor.module';
 
 const appRoutes: Routes = [
   { path: 'home', component: LoginComponent},
@@ -22,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'changePassword', component: ChangePasswordComponent},
   { path: 'adminDashboard', component: AdminDashboardComponent},
   { path: 'patient', component: PatientComponent},
+  { path: 'doctor', component: DoctorComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
@@ -31,6 +34,7 @@ const appRoutes: Routes = [
     CommonModule,
     AdminDashboardModule,
     PatientModule,
+    DoctorModule,
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   declarations: [
