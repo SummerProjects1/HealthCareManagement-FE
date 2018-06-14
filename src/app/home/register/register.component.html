@@ -1,5 +1,5 @@
 <div class="container-fluid regdiv">
-	<form class="registerform center-block">
+	<form (submit) = "onRegisterSubmit()" class="registerform center-block">
 		 <h2 class="headertext">Patient Registration Form</h2><br/>
 		 <hr/><br/>
 		    <div class="input-container ">
@@ -14,13 +14,13 @@
     				   <label class="labeltext">First Name :</label>
     				 </td>
     				  <td class="field-class">
-    			       <input class="input-field " type="text" placeholder=" First Name" name="firstName">
+    			       <input class="input-field " type="text" placeholder=" First Name" [(ngModel)] = "firstname" name="firstname">
     				 </td>
     				  <td class="label-class">
     				    <label class="labeltext">Last Name :</label>
     				 </td>
     				  <td class="field-class">
-    				    <input class="input-field " type="text" placeholder=" Last Name" name="lastName">
+    				    <input class="input-field " type="text" placeholder=" Last Name" [(ngModel)] = "lastname" name="lastname">
     				 </td>		    					
     				</tr>
     				
@@ -29,13 +29,13 @@
     				   <label class="labeltext">User Name :</label>
     				 </td>
     				 <td class="field-class">
-    				    <input class="input-field " type="text" placeholder=" Username" name="userName">
+    				    <input class="input-field " type="text" placeholder=" Username" [(ngModel)] = "username" name="username">
     				 </td>
     				 <td class="label-class">
     				 	 <label class="labeltext">Email ID :</label>
     				 </td>
     				 <td class="field-class">
-    				     <input class="input-field " type="text" placeholder=" Email ID" name="emailId">  
+    				     <input class="input-field " type="text" placeholder=" Email ID" [(ngModel)] = "email" name="email">  
     				 </td>	 
     				</tr>
     				
@@ -44,13 +44,13 @@
     				   <label class="labeltext">Password :</label>
     				 </td>
     				 <td class="field-class">
-    				    <input class="input-field " type="text" placeholder=" Password" name="password">
+    				    <input class="input-field " type="text" placeholder=" Password" [(ngModel)] = "password" name="password">
     				 </td>
     				 <td class="label-class">
     				 	 <label class="labeltext">Re-Type Password :</label>
     				 </td>
     				 <td class="field-class">
-    				     <input class="input-field " type="text" placeholder=" Re-Type Password" name="retypePassword">  
+    				     <input class="input-field " type="text" placeholder=" Re-Type Password" [(ngModel)] = "retypepassword" name="retypepassword">  
     				 </td>	 
     				</tr>
     				
@@ -60,13 +60,13 @@
     				 	 <label class="labeltext">Contact :</label>
     				 </td>
     				 <td class="field-class">
-    				     <input class="input-field " type="text" placeholder="Contact" name="contact">  
+    				     <input class="input-field " type="text" placeholder="Contact" [(ngModel)] = "contact" name="contact">  
     				 </td>	 
     				</tr>
     				
     				
     				
-    				
+    				<!-- 
     				<tr>
     				 <td class="address">
     				    Address Information
@@ -200,23 +200,7 @@
     				        <option> Widowed</option>
     				         <option> Legally separated</option>
     				    </select>			   
-                       <!-- <div class="radiobutton">
-                         <div >
-                             <input type="radio" required>
-                             <label>Married</label>
-                            
-                             <div class="reveal-if-active">
-                                <label >Enter Husband/Wife name:</label>
-                                <input type="text" class="require-if-active" >
-                             </div>
-                        </div>
-                        
-                        <div >
-                          <input type="radio">
-                          <label for="choice-animals-cats">Single</label>
-                        </div>          
-                      </div>
- -->
+                      
     				 </td>		
     				 
     				 <td class="label-class">
@@ -332,7 +316,7 @@
     			       <input class="input-field " type="text" placeholder="Relation name" name="patientRelation">
     				 </td>
     				</tr>
-    				
+    				 -->
     			</table>
     			
   			</div>
