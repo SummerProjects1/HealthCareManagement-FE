@@ -10,8 +10,7 @@ import { HomeComponent } from '../home.component';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router, private _utilityService: UtilityService,
-              private _homeComponent: HomeComponent) { }
+  constructor(private router:Router,  private _homeComponent: HomeComponent) { }
 
   ngOnInit() {
   }
@@ -26,19 +25,17 @@ export class LoginComponent implements OnInit {
     
     if(username == 'admin' && password == 'admin'){
       this.router.navigate(['admin']);
-      this.loginHappened();
+      localStorage.setItem("logginHappened", 'true');
     }
     if(username == 'patient' && password == 'patient'){
       this.router.navigate(['patient']);
-      this.loginHappened();
+      localStorage.setItem("logginHappened", 'true');
+      this._homeComponent.ngOnInit();
     }
     if(username == 'doctor' && password == 'doctor'){
       this.router.navigate(['doctor']);
-      this.loginHappened();
+      localStorage.setItem("logginHappened", 'true');
+      this._homeComponent.ngOnInit();
     }
-  }
-  loginHappened(){
-    this._utilityService.loginHappened=true;
-    this._homeComponent.ngOnInit();
   }
 }

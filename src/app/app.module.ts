@@ -9,7 +9,6 @@ import { LoginComponent } from './home/login/login.component';
 import { HomeModule } from './home/home.module';
 import { PatientModule } from './patient/patient.module';
 //import { AdminModule } from './admin/admin.module';
-import { UtilityService } from './services/utility.service';
 
 
 const appRoutes: Routes = [
@@ -34,7 +33,6 @@ const appRoutes: Routes = [
   ],
   providers: [
     //HomeComponent
-    UtilityService
   ],
   bootstrap: [AppComponent]
 })

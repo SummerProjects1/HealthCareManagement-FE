@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilityService } from '../services/utility.service';
+import { LoginGlobals } from '../globals/loginGlobal';
 
 @Component({
   selector: 'app-home',
@@ -8,23 +8,23 @@ import { UtilityService } from '../services/utility.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _utilityService: UtilityService) { }
+  constructor(private _loginGlobals: LoginGlobals) { }
 
-  loginHappened: boolean;
+  loginHappened: string;
   logoutHappend: boolean = true;
 
   ngOnInit() {
-    this.loginHappened = this._utilityService.loginHappened;
-    if(this.loginHappened){
+    this.loginHappened = localStorage.getItem("logginHappened");
+    console.log('this.loginHappened  '+this.loginHappened)
+    if(this.loginHappened==='true'){
       this.logoutHappend = !this.logoutHappend;
     }
-    console.log('loginHappened  '+this._utilityService.loginHappened);
   }
 
   logoutClicked(){
-    this.loginHappened = !this.loginHappened;
-    this.logoutHappend = !this.logoutHappend;
-       console.log('logout clicked');
+    localStorage.setItem('logginHappened', 'false')
+    this.logoutHappend =true;
+    this.ngOnInit();
   }
 
 }
