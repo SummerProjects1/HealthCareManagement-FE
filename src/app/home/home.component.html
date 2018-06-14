@@ -15,11 +15,13 @@
 				<a [routerLink] = "['contact']">Contact</a>
 			</li>
 		</ul>
-		<ul class = "nav navbar-nav navbar-right" *ngIf="loginHappened==='true'">
+		<ul class = "nav navbar-nav navbar-right" *ngIf="loginHappened">
 			<li routerLinkActive = "active">
 				<a [routerLink] = "['home']" (click)="logoutClicked()">Logout</a>
 			</li>
 		</ul>
 	</div>
 </nav> 
+
+<flash-messages></flash-messages>
 <router-outlet></router-outlet>

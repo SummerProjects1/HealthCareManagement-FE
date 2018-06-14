@@ -11,7 +11,7 @@ import { PatientModule } from './patient/patient.module';
 //import { AdminModule } from './admin/admin.module';
 import { UtilityService } from './services/utility.service';
 import { ValidateService } from './services/validate.service';
-
+import {FlashMessagesModule } from 'angular2-flash-messages';
 
 const appRoutes: Routes = [
   { path: 'home', component: LoginComponent}
@@ -28,9 +28,11 @@ const appRoutes: Routes = [
     HomeModule,
     //AdminModule,
     PatientModule,
-    RouterModule.forRoot(appRoutes, { useHash: true })
+    RouterModule.forRoot(appRoutes, { useHash: true }),
+    FlashMessagesModule.forRoot()
   ],
   exports: [
+    FlashMessagesModule
  
   ],
   providers: [

@@ -15,6 +15,7 @@ import { PatientComponent } from '../patient/patient.component';
 import { PatientModule } from '../patient/patient.module';
 import { DoctorComponent } from '../doctor/doctor.component';
 import { DoctorModule } from '../doctor/doctor.module';
+import {FlashMessagesModule } from 'angular2-flash-messages';
 
 const appRoutes: Routes = [
   { path: 'home', component: LoginComponent},
