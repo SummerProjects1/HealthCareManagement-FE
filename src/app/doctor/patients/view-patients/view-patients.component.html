@@ -1,0 +1,19 @@
+<table class = "table table-hover ViewPatientsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th colspan = "2">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let admin of patients'>
+        <td> {{admin.name}}</td>
+        <td> {{admin.phone}}</td>
+        <td> {{admin.email}}</td>
+        <td> <button>Edit</button></td>
+        <td><button>Delete</button></td>
+      </tr>
+    </tbody>
+  </table>

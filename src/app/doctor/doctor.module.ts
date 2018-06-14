@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-//import { CommonModule } from '@angular/common';
+
+import { PatientsModule } from './patients/patients.module';
+import { AppointmentModule } from '../appointment/appointment.module';
 
 import { DoctorComponent } from './doctor.component';
 
 @NgModule({
-    declarations: [
-        DoctorComponent
-    ],
-    imports: [
-     // CommonModule
-    ],
-    exports: [
-        DoctorComponent
-    ],
-    providers: [
-     
-    ],
-    bootstrap: []
-  })
-  export class DoctorModule { }
+  imports: [
+    CommonModule,
+    PatientsModule,
+    RouterModule.forChild([
+      { path: 'doctor', component: DoctorComponent }
+    ]),
+    AppointmentModule
+  ],
+  declarations: [
+    DoctorComponent
+  ]
+})
+export class DoctorModule { }

@@ -1,1 +1,51 @@
-<h1>Doctor module</h1>
+<div class="container-fluid text-center">
+	<div class="row content">
+		<div class="col-sm-2 sidenav">
+			<br> <br>
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="showAddPatientsForm()">Add Patients</button>
+            <br> <br>
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="showViewPatientsForm()">View Patients</button>
+            <br> <br>
+            <button type="button" name="button" class="btn btn-primary"
+				(click)="showAddAppointmentsForm()">Add Appointments</button>
+            <br> <br>
+            <button type="button" name="button" class="btn btn-primary"
+				(click)="showViewAppointmentsForm()">View Appointments</button>
+            <br> <br>
+        </div>
+
+        <div class="col-sm-8 text-left">
+			<br> <br>
+			<div class="container-fluid text-center"
+				*ngIf="toggleAddPtientsForm">
+				<app-add-patients></app-add-patients>
+            </div>
+            <br> <br>
+			<div class="container-fluid text-center"
+				*ngIf="toggleViewPatientsForm">
+				<app-view-patients></app-view-patients>
+            </div>
+            <br> <br>
+            <div class="container-fluid text-center"
+				*ngIf="toggleAddAppointmentsForm">
+				<app-appointment></app-appointment>
+            </div>
+            <br> <br>
+			<div class="container-fluid text-center"
+				*ngIf="toggleViewAppointmentsForm">
+				<app-appointment-list></app-appointment-list>
+            </div>
+        </div>
+
+        <div class="col-sm-2 sidenav">
+			<div class="well">
+				<p>ADS</p>
+			</div>
+			<div class="well">
+				<p>ADS</p>
+			</div>
+        </div>
+    </div>
+</div>
