@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginGlobals } from '../globals/loginGlobal';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +7,7 @@ import { LoginGlobals } from '../globals/loginGlobal';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _loginGlobals: LoginGlobals) { }
+  constructor() { }
 
   loginHappened: string;
   logoutHappend: boolean = true;
