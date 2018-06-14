@@ -9,10 +9,10 @@
 				(click)="showViewPatientsForm()">View Patients</button>
             <br> <br>
             <button type="button" name="button" class="btn btn-primary"
-				(click)="showAddAppointmentForm()">Add Appointments</button>
+				(click)="showAddAppointmentsForm()">Add Appointments</button>
             <br> <br>
             <button type="button" name="button" class="btn btn-primary"
-				(click)="showViewAppointmentForm()">View Appointments</button>
+				(click)="showViewAppointmentsForm()">View Appointments</button>
             <br> <br>
         </div>
 
@@ -29,12 +29,12 @@
             </div>
             <br> <br>
             <div class="container-fluid text-center"
-				*ngIf="toggleViewPatientsForm">
+				*ngIf="toggleAddAppointmentsForm">
 				<app-appointment></app-appointment>
             </div>
             <br> <br>
 			<div class="container-fluid text-center"
-				*ngIf="toggleViewPatientsForm">
+				*ngIf="toggleViewAppointmentsForm">
 				<app-appointment-list></app-appointment-list>
             </div>
         </div>

@@ -9,8 +9,8 @@ export class DoctorComponent implements OnInit {
 
   toggleAddPtientsForm: boolean;
   toggleViewPatientsForm: boolean;
-  toggleViewAppointmentForm: boolean;
-  toggleAddAppointmentForm: boolean;
+  toggleViewAppointmentsForm: boolean;
+  toggleAddAppointmentsForm: boolean;
 
   constructor() { }
 
@@ -23,11 +23,11 @@ export class DoctorComponent implements OnInit {
   showViewPatientsForm() {
     this.toggleViewPatientsForm = !this.toggleViewPatientsForm;
   }
-  showViewAppointmentForm() {
-    this.toggleViewAppointmentForm = !this.toggleViewAppointmentForm;
+  showViewAppointmentsForm() {
+    this.toggleViewAppointmentsForm = !this.toggleViewAppointmentsForm;
   }
-  showAddAppointmentForm() {
-    this.toggleAddAppointmentForm = !this.toggleAddAppointmentForm;
+  showAddAppointmentsForm() {
+    this.toggleAddAppointmentsForm = !this.toggleAddAppointmentsForm;
   }
 
 }
