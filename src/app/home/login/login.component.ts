@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilityService } from '../../services/utility.service';
+import { HomeComponent } from '../home.component';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private _utilityService: UtilityService,
+              private _homeComponent: HomeComponent) { }
 
   ngOnInit() {
   }
@@ -23,12 +26,19 @@ export class LoginComponent implements OnInit {
     
     if(username == 'admin' && password == 'admin'){
       this.router.navigate(['admin']);
+      this.loginHappened();
     }
     if(username == 'patient' && password == 'patient'){
       this.router.navigate(['patient']);
+      this.loginHappened();
     }
     if(username == 'doctor' && password == 'doctor'){
       this.router.navigate(['doctor']);
+      this.loginHappened();
     }
+  }
+  loginHappened(){
+    this._utilityService.loginHappened=true;
+    this._homeComponent.ngOnInit();
   }
 }

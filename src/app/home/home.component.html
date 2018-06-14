@@ -1,7 +1,7 @@
 <nav class = "navbar fixed-top">
 	<div class = "container-fluid">
 	   <a href = "#"><img  class="logoimg" src = "/assets/images/logo_img.jpg" alt = "LOGO" /></a>
-		<ul class = "nav navbar-nav navbar-right">
+	   <ul class = "nav navbar-nav navbar-right" *ngIf ="logoutHappend" >
 			<li routerLinkActive = "active nav-item">
 				<a [routerLink] = "['home']" >Home</a>
 			</li>
@@ -13,6 +13,11 @@
 			</li>
 			<li routerLinkActive = "active">
 				<a [routerLink] = "['contact']">Contact</a>
+			</li>
+		</ul>
+		<ul class = "nav navbar-nav navbar-right" *ngIf="loginHappened">
+			<li routerLinkActive = "active">
+				<a [routerLink] = "['home']" (click)="logoutClicked()">Logout</a>
 			</li>
 		</ul>
 	</div>
