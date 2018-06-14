@@ -3,38 +3,38 @@
 		<div class="col-sm-2 sidenav">
 			<br> <br>
 			<button type="button" name="button" class="btn btn-primary"
-				(click)="showAddPatientsForm()">Add Patients</button>
+				(click)="shown = 'ADDPATIENT'">Add Patients</button>
             <br> <br>
 			<button type="button" name="button" class="btn btn-primary"
-				(click)="showViewPatientsForm()">View Patients</button>
+				(click)="shown = 'VIEWPATIENT'">View Patients</button>
             <br> <br>
             <button type="button" name="button" class="btn btn-primary"
-				(click)="showAddAppointmentsForm()">Add Appointments</button>
+				(click)="shown = 'ADDPPOINTMENT'">Add Appointments</button>
             <br> <br>
             <button type="button" name="button" class="btn btn-primary"
-				(click)="showViewAppointmentsForm()">View Appointments</button>
+				(click)="shown = 'VIEWAPPOINTMENT'">View Appointments</button>
             <br> <br>
         </div>
 
         <div class="col-sm-8 text-left">
 			<br> <br>
 			<div class="container-fluid text-center"
-				*ngIf="toggleAddPtientsForm">
+				*ngIf="shown === 'ADDPATIENT'">
 				<app-add-patients></app-add-patients>
             </div>
             <br> <br>
 			<div class="container-fluid text-center"
-				*ngIf="toggleViewPatientsForm">
+				*ngIf="shown === 'VIEWPATIENT'">
 				<app-view-patients></app-view-patients>
             </div>
             <br> <br>
             <div class="container-fluid text-center"
-				*ngIf="toggleAddAppointmentsForm">
+				*ngIf="shown === 'ADDPPOINTMENT'">
 				<app-appointment></app-appointment>
             </div>
             <br> <br>
 			<div class="container-fluid text-center"
-				*ngIf="toggleViewAppointmentsForm">
+				*ngIf="shown === 'VIEWAPPOINTMENT'">
 				<app-appointment-list></app-appointment-list>
             </div>
         </div>
