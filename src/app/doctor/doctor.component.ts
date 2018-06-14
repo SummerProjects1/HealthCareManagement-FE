@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class DoctorComponent implements OnInit {
 
   toggleAddPtientsForm: boolean;
-  toggleViewPatientsForm: boolean;
-  toggleViewAppointmentsForm: boolean;
-  toggleAddAppointmentsForm: boolean;
+  toggleViewPatientsForm: boolean = true;
+  toggleViewAppointmentsForm: boolean = true;
+  toggleAddAppointmentsForm: boolean = true;
 
   constructor() { }
 
