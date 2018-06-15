@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent  implements OnInit {
   title = 'Health Care Management'; 
+  loginHappened;
 
   ngOnInit() {
-    localStorage.setItem('loginHappened', 'false')
+    this.loginHappened = localStorage.getItem('loginHappened');
+    if(this.loginHappened ==='true'){
+      localStorage.setItem('loginHappened', 'true');
+    }else{
+      localStorage.setItem('loginHappened', 'false');
+    }
   }
 }
