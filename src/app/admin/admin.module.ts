@@ -7,6 +7,7 @@ import { AdminsModule } from './admins/admins.module';
 import { DoctorsModule } from './doctors/doctors.module';
 
 import { AdminComponent } from './admin.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ imports: [
   CommonModule,
   DoctorsModule,
   RouterModule.forChild([
-    { path: 'admin', component: AdminComponent }
+    { path: 'admin', canActivate:[AuthGuard], component: AdminComponent }
   ]),
   
 ]
