@@ -12,6 +12,7 @@ export class DoctorGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):boolean {
+      console.log('doctor this._router.url'+localStorage.getItem('loginHappened'));
       if(localStorage.getItem("loginHappened") === 'true'){
         if(localStorage.getItem("loginBy") ==='doctor'){
           localStorage.setItem('currentUrl','doctor');

@@ -13,6 +13,7 @@ export class PatientGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):  boolean {
       console.log('localStorage.getItem(loginBy)'+ localStorage.getItem('loginBy'));
+      console.log('patient this._router.url'+localStorage.getItem('loginHappened'));
       if(localStorage.getItem('loginHappened') === 'true'){
         if(localStorage.getItem('loginBy') === 'patient'){
           localStorage.setItem('currentUrl','patient');
