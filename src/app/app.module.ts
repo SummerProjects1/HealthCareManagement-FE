@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +13,7 @@ import { PatientModule } from './patient/patient.module';
 import { UtilityService } from './services/utility.service';
 import { ValidateService } from './services/validate.service';
 import {FlashMessagesModule } from 'angular2-flash-messages';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   { path: 'home', component: LoginComponent}
@@ -26,7 +28,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     HomeModule,
-    //AdminModule,
+    HttpModule,
     PatientModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
     FlashMessagesModule.forRoot()
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
   providers: [
     //HomeComponent
     UtilityService,
-    ValidateService
+    ValidateService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
