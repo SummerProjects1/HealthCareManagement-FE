@@ -5,13 +5,13 @@ import { PatientProfileComponent } from './profile/patient-profile.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthGuard } from '../guards/auth.guard';
+import { PatientGuard } from '../guards/patient.guard';
 
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-           { path: 'patient', canActivate:[AuthGuard], component: PatientComponent }
+           { path: 'patient', canActivate:[PatientGuard], component: PatientComponent }
     ]),
     AppointmentModule
   ],

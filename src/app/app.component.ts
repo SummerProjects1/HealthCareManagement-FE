@@ -8,6 +8,6 @@ export class AppComponent  implements OnInit {
   title = 'Health Care Management'; 
 
   ngOnInit() {
-    localStorage.setItem('logginHappened', 'false')
+    localStorage.setItem('loginHappened', 'false')
   }
 }

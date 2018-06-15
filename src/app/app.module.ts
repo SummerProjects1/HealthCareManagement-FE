@@ -28,7 +28,7 @@ const appRoutes: Routes = [
     HomeModule,
     //AdminModule,
     PatientModule,
-    RouterModule.forRoot(appRoutes, { useHash: true }),
+    RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
   exports: [

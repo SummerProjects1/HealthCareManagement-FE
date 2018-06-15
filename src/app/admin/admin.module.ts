@@ -5,9 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileModule } from './profile/profile.module';
 import { AdminsModule } from './admins/admins.module';
 import { DoctorsModule } from './doctors/doctors.module';
-
 import { AdminComponent } from './admin.component';
-import { AuthGuard } from '../guards/auth.guard';
+import { AdminGuard } from '../guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,7 @@ imports: [
   CommonModule,
   DoctorsModule,
   RouterModule.forChild([
-    { path: 'admin', canActivate:[AuthGuard], component: AdminComponent }
+    { path: 'admin', canActivate:[AdminGuard], component: AdminComponent }
   ]),
   
 ]
