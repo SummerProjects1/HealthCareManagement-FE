@@ -12,16 +12,16 @@ export class HomeComponent implements OnInit {
   loginHappened: string;
   logoutHappend: boolean = true;
 
+
   ngOnInit() {
-    this.loginHappened = localStorage.getItem("logginHappened");
-    console.log('this.loginHappened  '+this.loginHappened)
+    this.loginHappened = localStorage.getItem("loginHappened");
     if(this.loginHappened==='true'){
       this.logoutHappend = !this.logoutHappend;
     }
   }
 
   logoutClicked(){
-    localStorage.setItem('logginHappened', 'false')
+    localStorage.setItem('loginHappened', 'false')
     this.logoutHappend =true;
     this.ngOnInit();
   }

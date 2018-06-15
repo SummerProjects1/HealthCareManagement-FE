@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     HomeModule,
     HttpModule,
     PatientModule,
-    RouterModule.forRoot(appRoutes, { useHash: true }),
+    RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
   exports: [

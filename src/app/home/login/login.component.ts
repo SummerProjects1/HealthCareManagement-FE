@@ -21,20 +21,22 @@ export class LoginComponent implements OnInit {
     var username = e.target.elements[0].value;
     var password = e.target.elements[1].value;
 
-    
-    
     if(username == 'admin' && password == 'admin'){
       this.router.navigate(['admin']);
-      localStorage.setItem("logginHappened", 'true');
+      localStorage.setItem("loginHappened", 'true');
+      localStorage.setItem("loginBy", 'admin');
+      this._homeComponent.ngOnInit();
     }
     if(username == 'patient' && password == 'patient'){
       this.router.navigate(['patient']);
-      localStorage.setItem("logginHappened", 'true');
+      localStorage.setItem("loginHappened", 'true');
+      localStorage.setItem("loginBy", 'patient');
       this._homeComponent.ngOnInit();
     }
     if(username == 'doctor' && password == 'doctor'){
       this.router.navigate(['doctor']);
-      localStorage.setItem("logginHappened", 'true');
+      localStorage.setItem("loginHappened", 'true');
+      localStorage.setItem("loginBy", 'doctor');
       this._homeComponent.ngOnInit();
     }
   }

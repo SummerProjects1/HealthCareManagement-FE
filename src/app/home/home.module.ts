@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     AdminModule,
     PatientModule,
     DoctorModule,
-    RouterModule.forRoot(appRoutes, { useHash: true })
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     LoginComponent,
