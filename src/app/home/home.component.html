@@ -15,7 +15,7 @@
 				<a [routerLink] = "['contact']">Contact</a>
 			</li>
 		</ul>
-		<ul class = "nav navbar-nav navbar-right" *ngIf="loginHappened">
+		<ul class = "nav navbar-nav navbar-right" *ngIf="loginHappened === 'true'">
 			<li routerLinkActive = "active">
 				<a [routerLink] = "['home']" (click)="logoutClicked()">Logout</a>
 			</li>
