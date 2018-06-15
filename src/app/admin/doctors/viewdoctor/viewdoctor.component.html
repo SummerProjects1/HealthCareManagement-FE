@@ -1,0 +1,27 @@
+<h2> Doctors </h2>
+<hr/>
+<table class = "table table-hover ViewDoctorsTable">
+    <thead>
+      <tr>
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Specialization</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th colspan = "2">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let doctor of doctors'>
+        <td> {{doctor.employeeId}}</td>
+        <td> {{doctor.name}}</td>
+        <td> {{doctor.department}}</td>
+        <td> {{doctor.specialization}}</td>
+        <td> {{doctor.phone}}</td>
+        <td> {{doctor.email}}</td>
+        <td> <button class="btn btn-warning">Edit</button></td>
+        <td><button class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,3 +1,71 @@
-<p>
-  admin works!
-</p>
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top nav-custom" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://cijulenlinea.ucr.ac.cr/dev-users/">
+                <img src="/assets/images/logo_img.jpg" alt="LOGO" class="imglogo">
+            </a>
+        </div>
+        <ul class="nav navbar-right top-nav">
+            <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i></a>
+            </li>            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin User <b class="fa fa-angle-down"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="collapse navbar-collapse navbar-ex1-collapse ">
+            <div class="nav navbar-nav side-nav custom-sidenav">
+                <br>
+                <img class="profilepic center-block" alt="profilepic" src="/assets/images/defaultprofile.png">
+                <h3 class="profilename">{{username}}</h3>
+                <p class="profilename">{{role}}</p>
+                <br/>
+                <button type="button" name="button" class="btn btn-custom" (click)="shown = 'ADDADMIN'">Add Admin</button>
+                <br> <br>
+                <button type="button" name="button" class="btn btn-custom" (click)="shown = 'VIEWADMIN'">View Admin</button>
+                <br> <br>
+                <button type="button" name="button" class="btn btn-custom" (click)="shown = 'ADDDOCTOR'">Add Doctor</button>
+                <br> <br>
+                <button type="button" name="button" class="btn btn-custom" (click)="shown = 'VIEWDOCTOR'">View Doctor</button>
+                <br> <br>
+                <button type="button" name="button" class="btn btn-custom" (click)="shown = 'VIEWPROFILE'">View Profile</button>
+                <br> <br>
+            </div>
+        </div>            
+    </nav>
+    <div id="page-wrapper">
+        <div class="container-fluid text-center" *ngIf="shown === 'ADDADMIN'">
+            <app-addadmin></app-addadmin>
+        </div>
+
+        <div class="container-fluid text-center" *ngIf="shown === 'VIEWADMIN'">
+            <app-viewadmin></app-viewadmin>
+        </div>
+
+        <div class="container-fluid text-center" *ngIf="shown === 'ADDDOCTOR'">
+            <app-adddoctor></app-adddoctor>
+        </div>
+
+        <div class="container-fluid text-center" *ngIf="shown === 'VIEWDOCTOR'">
+            <app-viewdoctor></app-viewdoctor>
+        </div>
+
+        <div class="container-fluid text-center" *ngIf="shown === 'VIEWPROFILE'">
+            <app-profile></app-profile>
+        </div>
+    </div>
+</div>
+
+
+
