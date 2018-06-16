@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-admin',
@@ -11,9 +12,15 @@ export class AdminComponent implements OnInit {
   username = 'Asha Singh';
   role = 'Admin';
 
-  constructor() { }
+  constructor(private _homeComponent: HomeComponent) { }
 
   ngOnInit() {
+  }
+
+  logoutClicked(){
+    localStorage.setItem('loginHappened', 'false')
+    localStorage.setItem("logoutHappened", 'true');
+    this._homeComponent.ngOnInit();
   }
 
   /*toggleAddAdminForm: boolean;
