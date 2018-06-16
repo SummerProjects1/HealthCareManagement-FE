@@ -2,78 +2,74 @@
     <div class="col-md-12 col-sm-12">
         <div class="card card-box">
             <div class="card-head">
-                <h2>Basic Admin Information</h2>
+                <h1>Basic Admin Information</h1>
                 <hr />
-               
             </div>
             <div class="card-body" id="bar-parent">
-                <form (submit) = "onAddAdmin()" id="form_sample_1" class="form-horizontal">
+                <form  (ngSubmit)="onSubmitAdmin()" id="form_sample_1" class="form-horizontal" >
                     <div class="form-body">
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Username<span class="required"> * </span></label>
-                            <div class="col-md-5">
-                                <input type="text" [(ngModel)] = "username" name="username" data-required="1" placeholder="enter first name" class="form-control input-height" />
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">First Name<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <input type="text" [(ngModel)] = "firstname" name="firstname" data-required="1" placeholder="enter first name" class="form-control input-height" />
+                                <input type="text" [(ngModel)]="newAdmin.firstName" name="firstname" data-required="1" placeholder=" First name" class="form-control input-height" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Last Name<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <input type="text" [(ngModel)] = "lastname" name="lastname" data-required="1" placeholder="enter last name" class="form-control input-height" /> 
+                                <input type="text" [(ngModel)]="newAdmin.lastName" name="lastname" data-required="1" placeholder=" Last name" class="form-control input-height" />
                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Username<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input type="text" [(ngModel)]="newAdmin.username" name="username" data-required="1" placeholder=" Username" class="form-control input-height" /> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Password<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input type="text" [(ngModel)]="newAdmin.password" name="password" data-required="1" placeholder=" Password" class="form-control input-height" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Re-Type Password<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input type="text" [(ngModel)]="newAdmin.retypepassword" name="retypepassword" data-required="1" placeholder=" Re-Type Password" class="form-control input-height" /> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Mobile No.<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input [(ngModel)]="newAdmin.contactNumber" name="number" type="text" placeholder=" Contact number" class="form-control input-height" />
+                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Email</label>
                             <div class="col-md-5">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input type="text" class="form-control input-height" [(ngModel)] = "email" name="email" placeholder="Email Address"> </div>
+                                    <input type="text" [(ngModel)]="newAdmin.email" name="email" class="form-control input-height"  placeholder=" Email Address"> 
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Password<span class="required"> * </span></label>
+                            <label class="control-label col-md-3">Address<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <input type="password" [(ngModel)] = "password" name="password" data-required="1" placeholder="enter Password" class="form-control input-height" /> 
+                                <textarea [(ngModel)]="newAdmin.address" name="address" placeholder="address" class="form-control-textarea" rows="5" ></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Confirm Password<span class="required"> * </span></label>
-                            <div class="col-md-5">
-                                <input type="password" [(ngModel)] = "retypepassword" name="retypepassword" data-required="1" placeholder="Reenter your password" class="form-control input-height" /> 
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Contact :<span class="required"> * </span></label>
-                            <div class="col-md-5">
-                                <input [(ngModel)] = "contact" name="contact" type="text" placeholder="contact number" class="form-control input-height" /> 
-                            </div>
-                        </div>
-                       <!--<div class="form-group row">
-                            <label class="control-label col-md-3">Address
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-5">
-                                <textarea name="address" placeholder="address" class="form-control-textarea" rows="5" ></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Profile Picture
-                            </label>
+                            <label class="control-label col-md-3">Upload Picture</label>
                             <div class="compose-editor">
-                              <input type="file" class="default" multiple>
+                              <input type="file" [(ngModel)]="newAdmin.img" name="pic" class="default" multiple>
                           </div>
-                        </div>-->
-  
+                        </div>
                         <div class="form-actions">
                             <div class="row">
                                 <div class="offset-md-3 col-md-9">
-                                    <button type="submit" class="btn btn-info">Submit</button>&nbsp;&nbsp;
-                                    <button type="button" class="btn btn-default">Cancel</button>
+                                    <button type="submit" class="btn btn-info">Submit</button>&nbsp;&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-default">Cancel</button> <br/><br/><br/>
                                 </div>
                             </div>
                         </div>
