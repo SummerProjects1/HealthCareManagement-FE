@@ -4,73 +4,71 @@
             <div class="card-head">
                 <h1>Basic Doctors Information</h1>
                 <hr />
-               <!--  <button id = "panel-button" 
-               class = "mdl-button mdl-js-button mdl-button--icon pull-right" 
-               data-upgraded = ",MaterialButton">
-               <i class = "material-icons">more_vert</i>
-            </button>
-             <ul class = "mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-               data-mdl-for = "panel-button">
-               <li class = "mdl-menu__item"><i class="material-icons">assistant_photo</i>Action</li>
-               <li class = "mdl-menu__item"><i class="material-icons">print</i>Another action</li>
-               <li class = "mdl-menu__item"><i class="material-icons">favorite</i>Something else here</li>
-            </ul> -->
             </div>
             <div class="card-body" id="bar-parent">
-                <form action="#" id="form_sample_1" class="form-horizontal">
+                <form  (ngSubmit)="onSubmitDoctor()" id="form_sample_1" class="form-horizontal" >
                     <div class="form-body">
-                    <div class="form-group row">
-                            <label class="control-label col-md-3">First Name
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-5">
-                                <input type="text" name="firstname" data-required="1" placeholder="enter first name" class="form-control input-height" /> </div>
-                        </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Last Name
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3">First Name<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <input type="text" name="lastname" data-required="1" placeholder="enter last name" class="form-control input-height" /> </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Email
-                            </label>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                            <i class="fa fa-envelope"></i>
-                                        </span>
-                                    <input type="text" class="form-control input-height" name="email" placeholder="Email Address"> </div>
+                                <input type="text" [(ngModel)]="newDoctor.firstName" name="firstname" data-required="1" placeholder=" First name" class="form-control input-height" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Password
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3">Last Name<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <input type="password" name="pswd" data-required="1" placeholder="enter Password" class="form-control input-height" /> </div>
+                                <input type="text" [(ngModel)]="newDoctor.lastName" name="lastname" data-required="1" placeholder=" Last name" class="form-control input-height" />
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Confirm Password
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3">Username<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <input type="text" name="cnfmPwd" data-required="1" placeholder="Reenter your password" class="form-control input-height" /> </div>
+                                <input type="text" [(ngModel)]="newDoctor.username" name="username" data-required="1" placeholder=" Username" class="form-control input-height" /> 
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Designation
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3">Password<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <input type="text" name="designation" data-required="1" placeholder="enter your designation" class="form-control input-height" /> </div>
+                                <input type="password" [(ngModel)]="newDoctor.password" name="password" data-required="1" placeholder=" Password" class="form-control input-height" />
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Departments
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3">Re-Type Password<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <select class="form-control input-height" name="department">
+                                <input type="password" [(ngModel)]="newDoctor.retypepassword" name="retypepassword" data-required="1" placeholder=" Re-Type Password" class="form-control input-height" /> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Mobile No.<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input [(ngModel)]="newDoctor.contactNumber" name="number" type="text" placeholder=" Contact number" class="form-control input-height" />
+                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Email</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <input type="text" [(ngModel)]="newDoctor.email" name="email" class="form-control input-height"  placeholder=" Email Address"> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Address<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <textarea [(ngModel)]="newDoctor.address" name="address" placeholder="address" class="form-control-textarea" rows="5" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Specialization<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input type="text" [(ngModel)]="newDoctor.specialization" name="specialization" data-required="1" placeholder=" specilization" class="form-control input-height" /> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Departments<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <select class="form-control input-height" [(ngModel)]="newDoctor.department" name="department">
                                     <option value="">Select...</option>
                                     <option value="Category 1">Neurology</option>
                                     <option value="Category 2">Orthopedics</option>
@@ -82,11 +80,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Gender
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3">Gender<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <select class="form-control input-height" name="gender">
+                                <select class="form-control input-height" [(ngModel)]="newDoctor.gender" name="gender">
                                     <option value="">Select...</option>
                                     <option value="Category 1">Male</option>
                                     <option value="Category 2">Female</option>
@@ -94,57 +90,34 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Mobile No.
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-5">
-                                <input name="number" type="text" placeholder="mobile number" class="form-control input-height" /> </div>
-                        </div>
-                           <div class="form-group row">
-                            <label class="control-label col-md-3">Date Of Birth
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3">Date Of Birth<span class="required"> * </span></label>
                             <div class="col-md-5">
                                 <div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                            <input class="form-control input-height" size="16" placeholder="date of Birth" type="text" value="">
-                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                        </div>
-                        <input type="hidden" id="dtp_input2" value="" />
-                            </div>
-                        </div>
-                       <div class="form-group row">
-                            <label class="control-label col-md-3">Address
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-5">
-                                <textarea name="address" placeholder="address" class="form-control-textarea" rows="5" ></textarea>
+                                    <input [(ngModel)]="newDoctor.dob" name="dob" class="form-control input-height" size="16" placeholder="date of Birth" type="text" value="">
+                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                </div>
+                                <input type="hidden" id="dtp_input2" value="" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Profile Picture
-                            </label>
+                            <label class="control-label col-md-3">Upload Picture</label>
                             <div class="compose-editor">
-                              <input type="file" class="default" multiple>
+                              <input type="file" [(ngModel)]="newDoctor.img" name="img" class="default" multiple>
                           </div>
                         </div>
-  <div class="form-group row">
-    <label class="control-label col-md-3">Education 
-    </label>
-    <div class="col-md-5">
-      <textarea name="address" class="form-control-textarea" placeholder="Education" rows="5"></textarea>
-    </div>
-  </div>
-  <div class="form-actions">
-                        <div class="row">
-                            <div class="offset-md-3 col-md-9">
-                                <button type="submit" class="btn btn-info">Submit</button>
-                                <button type="button" class="btn btn-default">Cancel</button>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="offset-md-3 col-md-9">
+                                    <button type="submit" class="btn btn-info">Submit</button>&nbsp;&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-default">Cancel</button> <br/><br/><br/>
+                                </div>
                             </div>
-                          </div>
                         </div>
-  </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-  </div>
+</div>
+
+

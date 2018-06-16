@@ -3,8 +3,8 @@
 <table class = "table table-hover ViewDoctorsTable">
     <thead>
       <tr>
-        <th>Employee Id</th>
-        <th>Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
         <th>Department</th>
         <th>Specialization</th>
         <th>Phone</th>
@@ -14,14 +14,14 @@
     </thead>
     <tbody>
       <tr *ngFor = 'let doctor of doctors'>
-        <td> {{doctor.employeeId}}</td>
-        <td> {{doctor.name}}</td>
+        <td> {{doctor.firstName}}</td>
+        <td> {{doctor.lastName}}</td>
         <td> {{doctor.department}}</td>
         <td> {{doctor.specialization}}</td>
-        <td> {{doctor.phone}}</td>
+        <td> {{doctor.contactNumber}}</td>
         <td> {{doctor.email}}</td>
         <td> <button class="btn btn-warning">Edit</button></td>
-        <td><button class="btn btn-danger">Delete</button></td>
+        <td><button class="btn btn-danger" (click) = "deleteDoctor(doctor); $event.stopPropagation();">Delete</button></td>
       </tr>
     </tbody>
   </table>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DoctorService } from '../../../services/doctors.service';
+import { IDoctor } from '../../doctors';
+
 @Component({
   selector: 'app-viewdoctor',
   templateUrl: './viewdoctor.component.html',
@@ -7,19 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewdoctorComponent implements OnInit {
 
-  doctors: any[];
-  constructor() {
-    this.doctors = [
-      {employeeId: '1', name: 'Asha', department: 'Cardiolody', specialization: 'Heart Surgeon', phone: '1234567', email: 'abc@gmail.com'},
-      {employeeId: '2', name: 'Asha', department: 'Cardiolody', specialization: 'Heart Surgeon', phone: '1234567', email: 'abc@gmail.com'},
-      {employeeId: '3', name: 'Asha', department: 'Cardiolody', specialization: 'Heart Surgeon', phone: '1234567', email: 'abc@gmail.com'},
-      {employeeId: '4', name: 'Asha', department: 'Cardiolody', specialization: 'Heart Surgeon', phone: '1234567', email: 'abc@gmail.com'},
-      {employeeId: '5', name: 'Asha', department: 'Cardiolody', specialization: 'Heart Surgeon', phone: '1234567', email: 'abc@gmail.com'}
-    ];
-   }
+  private doctors: IDoctor[] = [];
+
+  constructor( private _doctorService: DoctorService ) { }
 
   ngOnInit() {
+    this.loadDoctors();
   }
 
+  public loadDoctors() {
+    this._doctorService.getAllDoctors().subscribe(
+        response => this.doctors = response,)
+  }
+  public deleteDoctor(doctor: IDoctor) {
+    this._doctorService.deleteDoctor(doctor._id).subscribe(
+      response => this.doctors = this.doctors.filter(lists => lists !== doctor),)
+    }
 }
 
