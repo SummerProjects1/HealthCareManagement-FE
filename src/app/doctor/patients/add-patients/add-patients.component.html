@@ -17,35 +17,35 @@
             </ul> -->
             </div>
             <div class="card-body" id="bar-parent">
-                <form action="#" id="form_sample_1" class="form-horizontal">
+                <form id="form_sample_1" class="form-horizontal" (ngSubmit)="onSubmit()">
                     <div class="form-body">
                     <div class="form-group row">
                             <label class="control-label col-md-3">First Name
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <input type="text" name="firstname" data-required="1" placeholder="enter first name" class="form-control input-height" /> </div>
+                                <input type="text" [(ngModel)]="newPatient.firstName" name="firstname" data-required="1" placeholder="enter first name" class="form-control input-height" /> </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Last Name
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <input type="text" name="lastname" data-required="1" placeholder="enter last name" class="form-control input-height" /> </div>
+                                <input type="text" [(ngModel)]="newPatient.lastName" name="lastname" data-required="1" placeholder="enter last name" class="form-control input-height" /> </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Username
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <input type="text" name="lastname" data-required="1" placeholder="enter last name" class="form-control input-height" /> </div>
+                                <input type="text" [(ngModel)]="newPatient.username" name="username" data-required="1" placeholder="enter last name" class="form-control input-height" /> </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Password
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <input type="text" name="lastname" data-required="1" placeholder="enter last name" class="form-control input-height" /> </div>
+                                <input type="text" [(ngModel)]="newPatient.password" name="password" data-required="1" placeholder="enter last name" class="form-control input-height" /> </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Re-Type Password
@@ -60,7 +60,7 @@
                             </label>
                             <div class="col-md-5">
                                 <div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                <input class="form-control input-height" size="16" placeholder="date of Birth" type="text" value="">
+                                <input [(ngModel)]="newPatient.dateOfBirth" name="dateOfBirth" class="form-control input-height" size="16" placeholder="date of Birth" type="text" value="">
                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                             </div>
                             <input type="hidden" id="dtp_input2" value="" />
@@ -71,10 +71,10 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <select class="form-control input-height" name="gender">
+                                <select [(ngModel)]="newPatient.gender" class="form-control input-height" name="gender">
                                     <option value="">Select...</option>
-                                    <option value="Category 1">Male</option>
-                                    <option value="Category 2">Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                             </div>
                         </div>
@@ -83,14 +83,14 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <input type="text" name="age" data-required="1" placeholder="enter your age" class="form-control input-height" /> </div>
+                                <input type="text" [(ngModel)]="newPatient.age" name="age" data-required="1" placeholder="enter your age" class="form-control input-height" /> </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Mobile No.
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <input name="number" type="text" placeholder="mobile number" class="form-control input-height" /> </div>
+                                <input [(ngModel)]="newPatient.contactNumber" name="number" type="text" placeholder="mobile number" class="form-control input-height" /> </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Email
@@ -100,7 +100,7 @@
                                     <span class="input-group-addon">
                                             <i class="fa fa-envelope"></i>
                                         </span>
-                                    <input type="text" class="form-control input-height" name="email" placeholder="Email Address"> </div>
+                                    <input type="text" [(ngModel)]="newPatient.email" class="form-control input-height" name="email" placeholder="Email Address"> </div>
                             </div>
                         </div>
                          <div class="form-group row">
@@ -108,7 +108,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <textarea name="address" placeholder="address" class="form-control-textarea" rows="5" ></textarea>
+                                <textarea [(ngModel)]="newPatient.address" name="address" placeholder="address" class="form-control-textarea" rows="5" ></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -116,10 +116,10 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <select class="form-control input-height" name="gender">
+                                <select [(ngModel)]="newPatient.maritalStatus" class="form-control input-height" name="gender">
                                     <option value="">Select...</option>
-                                    <option value="Category 1">Single</option>
-                                    <option value="Category 2">Married</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
                                 </select>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                             <label class="control-label col-md-3">Upload Picture
                             </label>
                             <div class="compose-editor">
-                              <input type="file" class="default" multiple>
+                              <input type="file" [(ngModel)]="newPatient.img" name="pic" class="default" multiple>
                           </div>
                         </div>
                         <div class="form-group row">
@@ -135,16 +135,16 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-5">
-                                <select class="form-control input-height" name="selectbg">
+                                <select [(ngModel)]="newPatient.bloodGroup" class="form-control input-height" name="selectbg">
                                     <option value="">Select...</option>
-                                    <option value="Category 1">A+</option>
-                                    <option value="Category 2">A-</option>
-                                    <option value="Category 3">B+</option>
-                                    <option value="Category 4">B-</option>
-                                    <option value="Category 5">AB+</option>
-                                    <option value="Category 6">AB-</option>
-                                    <option value="Category 7">O+</option>
-                                    <option value="Category 8">O-</option>	
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>	
                                 </select>
                             </div>
                         </div>
@@ -152,28 +152,28 @@
                              <label class="control-label col-md-3">Blood Presure
                              </label>
                              <div class="col-md-5">
-                                 <input type="text" class="form-control input-height" placeholder="blood presure" name="bp" >
+                                 <input type="text" [(ngModel)]="newPatient.bloodPressure" class="form-control input-height" placeholder="blood presure" name="bp" >
                              </div>
                          </div>
   <div class="form-group row">
                             <label class="control-label col-md-3">Sugger
                             </label>
                             <div class="col-md-5">
-                                <input type="text" class="form-control input-height" placeholder="sugger" name="sug" >
+                                <input type="text" [(ngModel)]="newPatient.sugger" class="form-control input-height" placeholder="sugger" name="sug" >
                             </div>
                         </div>
                         <div class="form-group row">
                              <label class="control-label col-md-3">Injury/Condition
                              </label>
                              <div class="col-md-5">
-                                 <input type="text" class="form-control input-height" placeholder="injury/condition" name="injury" >
+                                 <input type="text" [(ngModel)]="newPatient.Injury" class="form-control input-height" placeholder="injury/condition" name="injury" >
                              </div>
                          </div>
   <div class="form-actions">
                         <div class="row">
                             <div class="offset-md-3 col-md-9">
                                 <button type="submit" class="btn btn-info">Submit</button>
-                                <button type="button" class="btn btn-default">Cancel</button>
+                                <!-- <button type="button" class="btn btn-default">Cancel</button> -->
                             </div>
                           </div>
                       </div>
