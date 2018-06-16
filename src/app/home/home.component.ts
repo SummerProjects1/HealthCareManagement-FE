@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private flashMessage: FlashMessagesService) { }
 
   loginHappened: string;
   logoutHappend: boolean = true;
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('loginHappened', 'false')
     this.logoutHappend =true;
     this.ngOnInit();
+    this.flashMessage.show('You are logged out', { cssClass:'alert-success'});
   }
 
 }
