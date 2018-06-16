@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
    this.authService.authenticateUser(user).subscribe(data =>{
      console.log(data);
      if(data.success){
-      
        this.authService.storeUserData(data.token, data.user);
        this.flashMessage.show('You are now logged in', {
         cssClass: 'alert-success',
@@ -42,9 +41,8 @@ export class LoginComponent implements OnInit {
          localStorage.setItem("loginBy", 'admin');
          this._homeComponent.ngOnInit();
          this.navigateUrl = 'admin';
-         this.router.navigate([this.navigateUrl]);
+         this.router.navigate([this.navigateUrl]);         
      } else {
-       
        this.flashMessage.show(data.msg, {
          cssClass: 'alert-danger',
           timeout: 5000});
