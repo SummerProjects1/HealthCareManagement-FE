@@ -42,10 +42,10 @@ contact:String;
     }
 
     //Required fields
-    if(!this.validateService.validateRegister(user)){
-     this.flashMessage.show("Please fill in all fields", {cssClass: 'alert-danger', timeout:4000});
-      return false;
-    }
+    //if(!this.validateService.validateRegister(user)){
+    // this.flashMessage.show("Please fill in all fields", {cssClass: 'alert-danger', timeout:4000});
+      //return false;
+   // }
 
     if(!this.validateService.validateEmail(user.email)){
       this.flashMessage.show("Please enter valid email", {cssClass: 'alert-danger', timeout:4000});
@@ -54,12 +54,13 @@ contact:String;
 
    //Register User
     this.authService. registerUser(user).subscribe(data => {
+      console.log(data);
        if(data.success){
-        this.flashMessage.show("You are now registered and can log in ", {cssClass: 'alert-success', timeout:3000});
+        this.flashMessage.show("Success:  "+data.msg, {cssClass: 'alert-success', timeout:10000});
         this.router.navigate(['/home']);
        } else {
-        this.flashMessage.show("Something went wrong", {cssClass: 'alert-danger', timeout:3000});
-        this.router.navigate(['/register']);
+        this.flashMessage.show("Something went wrong: "+data.msg, {cssClass: 'alert-danger', timeout:10000});
+        //this.router.navigate(['/register']);
        }
     });
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http,Headers} from '@angular/http';
 import { map} from 'rxjs/operators';
 import { tokenNotExpired } from 'angular2-jwt';
+import { Observable } from 'rxjs';
 //import { Observable } from 'rxjs';
 
 @Injectable({
@@ -37,6 +38,14 @@ export class AuthService {
 
    loggedIn(){
      return tokenNotExpired();
+   }
+
+   confirmEmail(token:string){
+    let headers = new Headers();
+    let result:string;
+    headers.append('Content-Type', 'application/json');
+     return this.http.put('http://localhost:4003/users/activate/'+token, {headers: headers});
+    //.subscribe((data) => {var body = data.json();  });
    }
   /* logout(){
     this.authToken = null;
