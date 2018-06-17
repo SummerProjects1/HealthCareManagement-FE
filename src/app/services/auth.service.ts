@@ -40,12 +40,19 @@ export class AuthService {
      return tokenNotExpired();
    }
 
-   confirmEmail(token:string){
+   confirmEmail(token: string){
     let headers = new Headers();
     let result:string;
     headers.append('Content-Type', 'application/json');
      return this.http.put('http://localhost:4003/users/activate/'+token, {headers: headers});
     //.subscribe((data) => {var body = data.json();  });
+   }
+
+   resendConfirmEmail(email: string){
+    let headers = new Headers();
+    let email_json ={"email":email};
+    headers.append('Content-Type', 'application/json');
+     return this.http.put('http://localhost:4003/users/resendLink/', email_json, {headers: headers});
    }
   /* logout(){
     this.authToken = null;
