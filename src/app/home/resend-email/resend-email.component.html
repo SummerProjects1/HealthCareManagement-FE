@@ -1,0 +1,32 @@
+<div class="container-fluid regdiv">
+  <form (submit) = "resendEmail()" class="registerform center-block">
+  <div>
+    <h3>Resend Activation Email</h3>
+
+  </div>
+  <br>
+  <div class="row show-hide-message" *ngIf="successMessage">
+    <div class="alert alert-success">{{successMessage}} &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://localhost:4200/">{{description}}</a>
+    </div>
+  </div>
+  <div class="row show-hide-message" *ngIf="failMessage">
+    <div class="alert alert-danger">{{failMessage}} &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://localhost:4200/register">Click here to register !!</a>
+    </div>
+  </div>
+  <div class="input-container ">
+    <table class="formtable center-block">
+        <tr>
+            <td class="label-class">
+              <label class="labeltext">E-mail :</label>
+            </td>&nbsp;&nbsp;&nbsp;
+             <td class="field-class">
+                <input class="input-field " type="text" placeholder=" Enter your email" [(ngModel)] = "email" name="email">
+            </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td><button type="submit" class="btn btn-primary " >Send</button></td>
+        </tr>
+      </table>
+      </div>
+</form>
+</div>

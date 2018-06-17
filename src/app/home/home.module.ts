@@ -17,10 +17,12 @@ import { DoctorComponent } from '../doctor/doctor.component';
 import { DoctorModule } from '../doctor/doctor.module';
 import {FlashMessagesModule } from 'angular2-flash-messages';
 import { ActivateComponent } from './activate/activate.component';
+import { ResendEmailComponent } from './resend-email/resend-email.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: LoginComponent},
   { path: 'activate/:token', component: ActivateComponent},
+  { path: 'resend', component: ResendEmailComponent },
   { path: 'aboutUs', component: AboutUsComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'register', component: RegisterComponent},
@@ -49,7 +51,8 @@ const appRoutes: Routes = [
     ChangePasswordComponent,
     AboutUsComponent,
     ContactComponent,
-    ActivateComponent
+    ActivateComponent,
+    ResendEmailComponent
   ],
   exports:[
     LoginComponent,

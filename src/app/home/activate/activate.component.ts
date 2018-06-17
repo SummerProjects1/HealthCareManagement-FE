@@ -29,9 +29,4 @@ export class ActivateComponent implements OnInit  {
     });
    
   }
-
-  sendConfirmation(){
-    this._authService.confirmEmail(this.token);
-  }
-
 }
