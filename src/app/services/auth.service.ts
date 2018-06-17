@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http,Headers} from '@angular/http';
 import { map} from 'rxjs/operators';
 import { tokenNotExpired } from 'angular2-jwt';
-import { Observable } from 'rxjs';
-//import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +52,23 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
      return this.http.put('http://localhost:4003/users/resendLink/', email_json, {headers: headers});
    }
+
+   forgotPwdEmail(email: string){
+    let headers = new Headers();
+    let email_json ={"email":email};
+    console.log(email_json);
+    headers.append('Content-Type', 'application/json');
+     return this.http.put('http://localhost:4003/users/forgotPwd/', email_json, {headers: headers});
+   }
+
+   resetPassword(password: string, token: string){
+    let headers = new Headers();
+    let _json ={"password":password,"token":token};
+    console.log(_json);
+    headers.append('Content-Type', 'application/json');
+     return this.http.put('http://localhost:4003/users/resetPwd/', _json, {headers: headers});
+   }
+
   /* logout(){
     this.authToken = null;
     this.user = null;

@@ -1,0 +1,42 @@
+<div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+      </div>
+      <div class="col-sm-8 text-left">
+          <div class='panel panel-primary center-block'>
+              <div class='panel-heading center-block'>
+                {{reset_password}}	
+              </div><br>
+              <div class='panel-body text-center'>
+                <div>
+                  <form class="form-inline" #frm="ngForm" (ngSubmit) = "resetPassword(frm)">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label for="">Enter Password:</label><br><input type="password"
+                          class="form-control" name="password" value="" placeholder=" Enter password" ngModel>
+                      </div><br><br>
+                      <div class="form-group">
+                        <label for="">Re-type Password</label><br><input type="password"
+                          class="form-control" name="retypePwd" value="" placeholder=" re-type password" ngModel>
+                      </div><br>
+                      <br>
+                      <div class="form-group"><button type="submit" name="button" class="btn btn-success">Save</button><p></p></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+      </div>
+      <div class="col-sm-2 sidenav">
+          <div class="well">
+            <p>ADS</p>
+          </div>
+          <div class="well">
+            <p>ADS</p>
+          </div>
+      </div>
+    </div>
+</div>
+  
+  
+  
