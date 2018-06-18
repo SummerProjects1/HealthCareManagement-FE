@@ -1,4 +1,9 @@
 <div class = "container-fluid navmiddle" >
+    <div class="row show-hide-message" *ngIf="failMessage">
+        <div class="alert alert-danger">{{failMessage}} &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="http://localhost:4200/resend">Click here to resend activation link.</a>
+        </div>
+      </div>
   <div class = "left ">
       <h1 class=" wow bounceInDown animated imgtext  "> We Care For You..!</h1>
       <br/>

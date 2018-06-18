@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   username: String;
   password: String;
   navigateUrl:String;
+  failMessage: String;
 
   constructor(
     private router:Router, 
@@ -43,10 +44,15 @@ export class LoginComponent implements OnInit {
          this.navigateUrl = 'admin';
          this.router.navigate([this.navigateUrl]);         
      } else {
-       this.flashMessage.show(data.msg, {
-         cssClass: 'alert-danger',
-          timeout: 5000});
-       this.router.navigate(['home']);
+        if(data.code=='USERNOTACTIVATED'){
+          this.failMessage = data.msg;
+        }else{
+          this.flashMessage.show(data.msg, {
+            cssClass: 'alert-danger',
+             timeout: 5000});
+          this.router.navigate(['home']);
+        }
+       
      }
 
    });
