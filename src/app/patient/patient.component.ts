@@ -12,24 +12,13 @@ import { PrescriptionListComponent } from '../prescription/prescription-list/pre
 export class PatientComponent implements OnInit {
   prescriptionTitle = 'Prescription List';
   shown: string = 'DASHBOARD';
+  togglePrescriptionList:boolean;
   
   constructor() { }
   ngOnInit() {
   }
-<<<<<<< HEAD
-=======
 
-  // show and hiding the components
-  showAppointmentForm() {
-    this.toggleAppointmentForm = !this.toggleAppointmentForm;
-    this.toggleAppointmentList = !this.toggleAppointmentList;
-  }
-  showProfileForm() {
-    this.toggleProfileForm = !this.toggleProfileForm;
-    this.toggleAppointmentList = !this.toggleAppointmentList;
-  }
   showPrescriptionForm(){
     this.togglePrescriptionList = !this.togglePrescriptionList;
   }
->>>>>>> 6307a04cd5aa6371b93249dee9f7a5971b5cf046
 }

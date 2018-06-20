@@ -33,16 +33,9 @@
 			<button type="button" name="button" class="btn btn-primary"
 				(click)="shown = 'VIEWDOCTORS'">View Doctors</button>
 			<br> <br>
-<<<<<<< HEAD
-=======
 			<button type="button" name="button" class="btn btn-primary"
-				(click)="showAppointmentForm()">View Doctors</button>
+				(click)="shown = 'SHOWPRESCRIPTIONS'">View Prescription</button>
 			<br><br>
-			<button type="button" name="button" class="btn btn-primary"
-				(click)="showPrescriptionForm()">View Prescription</button>
-
-
->>>>>>> 6307a04cd5aa6371b93249dee9f7a5971b5cf046
 		</div>
 		<div class="col-sm-8 text-left">
 			<br> <br>
@@ -61,13 +54,8 @@
 			<div class="container-fluid text-center" *ngIf="shown === 'DASHBOARD'">
 				<app-appointment-list></app-appointment-list>
 			</div>
-<<<<<<< HEAD
-			<div class="container-fluid text-center" *ngIf="shown === 'DASHBOARD'">
+			<div class="container-fluid text-center" *ngIf="shown === 'SHOWPRESCRIPTIONS'">
 				<app-appointment-list></app-appointment-list>
-=======
-			<div class="container-fluid text-center" *ngIf="togglePrescriptionList">
-				<app-prescription-list></app-prescription-list>
->>>>>>> 6307a04cd5aa6371b93249dee9f7a5971b5cf046
 			</div>
 			
 			<!-- <div class='panel panel-primary'>
