@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { NgModule, ViewChild } from '@angular/core';
 import { FormsModule, FormGroup, FormControl } from '@angular/forms';
-import {Popup} from 'ng2-opd-popup';
+//import {Popup} from 'ng2-opd-popup';
 
 import { IAdmin } from '../../admins';
 import { AdminService } from '../../../services/admins.service';
@@ -16,7 +16,7 @@ import { AdminService } from '../../../services/admins.service';
 export class AddadminComponent implements OnInit {
 
   @Output() addAdmin: EventEmitter<IAdmin> = new EventEmitter<IAdmin>();
-  @ViewChild('popup1') popup1: Popup;
+  //@ViewChild('popup1') popup1: Popup;
   @ViewChild('f') form: any;
   private newAdmin :IAdmin;
 
@@ -57,7 +57,7 @@ export class AddadminComponent implements OnInit {
       }*/// this.load()  
   }
 
-  ClickButton(){
+  /*ClickButton(){
 
     this.popup1.options = {
       header: "Admin",
@@ -72,9 +72,8 @@ export class AddadminComponent implements OnInit {
       animation: "fadeInDown" // 'fadeInLeft', 'fadeInRight', 'fadeInUp', 'bounceIn','bounceInDown'
     };
     this.popup1.show(this.popup1.options);
-  }
-
-  /*load(){
-    location.reload();
   }*/
+  ClickButton(){
+    alert('NEW ADMIN ADDED...!!');
+  }
 }
