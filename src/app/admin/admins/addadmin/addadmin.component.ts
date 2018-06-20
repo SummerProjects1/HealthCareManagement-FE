@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
-import { ValidateService } from '../../../services/validate.service';
-import { FlashMessagesService} from 'angular2-flash-messages';
-import { AuthService } from '../../../services/auth.service';
+import { Location } from '@angular/common';
+import { NgModule, ViewChild } from '@angular/core';
+import { FormsModule, FormGroup, FormControl } from '@angular/forms';
+import {Popup} from 'ng2-opd-popup';
+
 import { IAdmin } from '../../admins';
 import { AdminService } from '../../../services/admins.service';
 
@@ -15,15 +16,16 @@ import { AdminService } from '../../../services/admins.service';
 export class AddadminComponent implements OnInit {
 
   @Output() addAdmin: EventEmitter<IAdmin> = new EventEmitter<IAdmin>();
-
+  @ViewChild('popup1') popup1: Popup;
+  @ViewChild('f') form: any;
   private newAdmin :IAdmin;
 
   constructor( private _adminService: AdminService,
-              private validateService: ValidateService,
-              private flashMessage: FlashMessagesService 
+    private location: Location
             ) { }
 
   ngOnInit() {
+    
      this.newAdmin = {
       _id:'',
       firstName: '',
@@ -38,37 +40,41 @@ export class AddadminComponent implements OnInit {
   }
 }
 
+
+
   public onSubmitAdmin() {
     this._adminService.addAdmin(this.newAdmin).subscribe(
         response=> {
           console.log(response);
           if(response.success== true)
             this.addAdmin.emit(this.newAdmin);
-            //this.flashMessage.show("Admin added successfully", {cssClass: 'alert-success', timeout:4000});
-        },
-      );
-      /*if(!this.validateService.validateRegister(this.newAdmin)){
-        this.flashMessage.show("Please fill in all fields", {cssClass: 'alert-danger', timeout:5000});
-        return false;
-      }
-  
-     if(!this.validateService.validateEmail(this.newAdmin.email)){
-       this.flashMessage.show("Please enter valid email", {cssClass: 'alert-danger', timeout:4000});
-       return false;
-     }*/
-
-     //Register User
-    /*this.authService.registerUser(this.newAdmin).subscribe(data => {
-      if(data.success){
-       this.flashMessage.show("Registered new Admin ", {cssClass: 'alert-success', timeout:3000});
-       this.router.navigate(['/viewAdmin']);
-      } else {
-       this.flashMessage.show("Something went wrong", {cssClass: 'alert-danger', timeout:3000});
-       this.router.navigate(['/addAdmin']);
-      }
-   });*/
+        }
+      ); 
+      this.form.reset();
+      /*if (this.form.valid) {
+        console.log("Form Submitted!");
+        this.form.reset();
+      }*/// this.load()  
   }
 
- 
+  ClickButton(){
 
+    this.popup1.options = {
+      header: "Admin",
+      color: "teal", // red, blue....
+      widthProsentage: 40, // The with of the popou measured by browser width
+      animationDuration: 1, // in seconds, 0 = no animation
+      showButtons: true, // You can hide this in case you want to use custom buttons
+      confirmBtnContent: "OK", // The text on your confirm button
+      cancleBtnContent: "OK", // the text on your cancel button
+      confirmBtnClass: "btn btn-default hidden", // your class for styling the confirm button
+      cancleBtnClass: "btn btn-default", // you class for styling the cancel button
+      animation: "fadeInDown" // 'fadeInLeft', 'fadeInRight', 'fadeInUp', 'bounceIn','bounceInDown'
+    };
+    this.popup1.show(this.popup1.options);
+  }
+
+  /*load(){
+    location.reload();
+  }*/
 }

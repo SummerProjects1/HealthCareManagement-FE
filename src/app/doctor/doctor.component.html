@@ -22,22 +22,22 @@
         </div>
 
         <div class="col-sm-8 text-left">
-			<br> <br>
+			
 			<div class="container-fluid text-center"
 				*ngIf="shown === 'ADDPATIENT'">
 				<app-add-patients></app-add-patients>
             </div>
-            <br> <br>
+           
 			<div class="container-fluid text-center"
 				*ngIf="shown === 'VIEWPATIENT'">
 				<app-view-patients></app-view-patients>
             </div>
-            <br> <br>
+           
             <div class="container-fluid text-center"
 				*ngIf="shown === 'ADDPPOINTMENT'">
 				<app-appointment></app-appointment>
             </div>
-            <br> <br>
+            
 			<div class="container-fluid text-center"
 				*ngIf="shown === 'VIEWAPPOINTMENT'">
 				<app-appointment-list></app-appointment-list>
@@ -51,6 +51,9 @@
 			<div class="container-fluid text-center"
 				*ngIf="shown === 'VIEWPRESCRIPTION'">
 				<app-prescription-list></app-prescription-list>
+			<div class="container-fluid text-center"
+				*ngIf="shown === 'PROFILE'">
+				<app-profile></app-profile>
             </div>
         </div>
 
