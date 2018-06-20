@@ -1,18 +1,18 @@
 <div class="container-fluid">
-  <form>
+  <form (ngSubmit)="savePrescription()" >
     <h2> Add Prescription</h2><hr/>
      <div class="form-group row">
         <div class="col-sm-2">
             <label>Date</label>
         </div>
         <div class="col-sm-4">
-            <input class="input-field" type="date" placeholder="Date" name="prescriptionDate">
+            <input class="input-field" type="date" placeholder="Date" [(ngModel)]="prescriptionDate" name="prescriptionDate">
         </div>
         <div class="col-sm-3">
             <label>Time</label>
         </div>
         <div class="col-sm-2">
-            <input class="input-field"  type="time" placeholder="Time" name="prescriptionTime" >
+            <input class="input-field"  type="time" placeholder="Time" [(ngModel)]="prescriptionTime" name="prescriptionTime" >
         </div>
       </div> <br>
       <div class="form-group row">
@@ -20,7 +20,7 @@
           <label>Patient</label>
         </div>
         <div class="col-sm-4">
-          <select class="selectpicker" title="Select patient" style="width:150px" name="selectPatient">
+          <select class="selectpicker" title="Select patient" style="width:150px" [(ngModel)]="selectPatient" name="selectPatient">
               <option value="">Select Patient</option>
             <option>Patient1</option>
             <option>PAtient2</option>
@@ -32,11 +32,11 @@
           <label> Medication</label>
         </div>
         <div class="col-sm-6">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" cols="500" name="medication"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" cols="500" [(ngModel)]="medication" name="medication"></textarea>
         </div>
       </div>
       <div class="form-group pull-middle">
-          <button type="button" class="btn btn-success">Save</button>
+          <button type="submit" class="btn btn-success">Save</button>
       </div>
 
               
