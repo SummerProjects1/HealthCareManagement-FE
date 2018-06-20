@@ -18,6 +18,7 @@ email:String;
 password:String;
 retypepassword:String;
 contact:String;
+userType: String;
 
   constructor( 
     private validateService: ValidateService,
@@ -37,7 +38,8 @@ contact:String;
       email: this.email,
       password: this.password,
       retypepassword: this.retypepassword,
-      contact: this.contact
+      contact: this.contact,
+      userType: this.userType
 
     }
 

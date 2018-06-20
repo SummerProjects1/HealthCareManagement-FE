@@ -33,15 +33,14 @@ export class LoginComponent implements OnInit {
    }
 
    this.authService.authenticateUser(user).subscribe(data =>{
-     console.log(data);
      if(data.success){
        this.authService.storeUserData(data.token, data.user);
        this.flashMessage.show('You are now logged in', {
         cssClass: 'alert-success',
          timeout: 5000});
-         localStorage.setItem("loginBy", 'admin');
+         localStorage.setItem("loginBy", data.user.userType);
          this._homeComponent.ngOnInit();
-         this.navigateUrl = 'admin';
+         this.navigateUrl = data.user.userType;
          this.router.navigate([this.navigateUrl]);         
      } else {
         if(data.code=='USERNOTACTIVATED'){
