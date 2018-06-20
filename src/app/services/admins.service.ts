@@ -39,8 +39,7 @@ export class AdminService
       retypepassword: admin.retypepassword,
       contactNumber: admin.contactNumber,
       email: admin.email,
-      address: admin.address,
-      img: admin.img,
+      address: admin.address
      });
     console.log(body);
     headers.append('Content-Type', 'application/json');

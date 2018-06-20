@@ -12,5 +12,4 @@ export interface IDoctor {
     department:string;
     gender:string;
     dob:string;
-    img: string;
 }

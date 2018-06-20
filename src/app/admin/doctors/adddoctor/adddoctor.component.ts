@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgModule, ViewChild } from '@angular/core';
+import {  ViewChild } from '@angular/core';
 import { FormsModule, FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../../../services/auth.service';
 import { IDoctor } from '../../doctors';
 import { DoctorService } from '../../../services/doctors.service';
 
@@ -34,8 +33,7 @@ export class AdddoctorComponent implements OnInit {
       specialization:'',
       department:'',
       gender:'',
-      dob:'',
-      img: ''
+      dob:''
   }
 }
 
