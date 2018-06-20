@@ -14,6 +14,7 @@ export class AppointmentListComponent implements OnInit {
   appointments: IAppointment[] = [];
   toggleEditForm = false;
   selectedAppointment: IAppointment;
+  user: string;
 
   constructor(private _appointmentService: AppointmentService) { }
 
@@ -22,12 +23,16 @@ export class AppointmentListComponent implements OnInit {
           .subscribe(appointments => { this.appointments = appointments,
              this.filteredAppointments = this.appointments;
        }, error => this.errorMessage = <any>error);
+    
+    this.user = localStorage.getItem('loginBy');
   }
 
   editAppointment(form) {
     console.log('hello');
     console.log('ddddd' + form.value._id);
     console.log('appointMessage' + this.selectedAppointment.appointMessage);
+    console.log('user = ' + this.user);
+    
     let appointment: IAppointment = {
       _id: this.selectedAppointment._id,
       appointmentType: form.value.appointmentType,
