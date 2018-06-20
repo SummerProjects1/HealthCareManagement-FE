@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PatientsModule } from './patients/patients.module';
 import { AppointmentModule } from '../appointment/appointment.module';
+import { ProfileModule } from '../profile/profile.module';
 
 import { DoctorComponent } from './doctor.component';
 import { DoctorGuard } from '../guards/doctor.guard';
@@ -12,6 +13,7 @@ import { DoctorGuard } from '../guards/doctor.guard';
   imports: [
     CommonModule,
     PatientsModule,
+    ProfileModule,
     RouterModule.forChild([
       { path: 'doctor',canActivate:[DoctorGuard] ,component: DoctorComponent }
     ]),

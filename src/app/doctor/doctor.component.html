@@ -13,29 +13,36 @@
             <br> <br>
             <button type="button" name="button" class="btn btn-primary"
 				(click)="shown = 'VIEWAPPOINTMENT'">View Appointments</button>
+			<br> <br>
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="shown = 'PROFILE'">My Profile</button>
             <br> <br>
         </div>
 
         <div class="col-sm-8 text-left">
-			<br> <br>
+			
 			<div class="container-fluid text-center"
 				*ngIf="shown === 'ADDPATIENT'">
 				<app-add-patients></app-add-patients>
             </div>
-            <br> <br>
+           
 			<div class="container-fluid text-center"
 				*ngIf="shown === 'VIEWPATIENT'">
 				<app-view-patients></app-view-patients>
             </div>
-            <br> <br>
+           
             <div class="container-fluid text-center"
 				*ngIf="shown === 'ADDPPOINTMENT'">
 				<app-appointment></app-appointment>
             </div>
-            <br> <br>
+            
 			<div class="container-fluid text-center"
 				*ngIf="shown === 'VIEWAPPOINTMENT'">
 				<app-appointment-list></app-appointment-list>
+			</div>
+			<div class="container-fluid text-center"
+				*ngIf="shown === 'PROFILE'">
+				<app-profile></app-profile>
             </div>
         </div>
 
