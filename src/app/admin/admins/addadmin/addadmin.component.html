@@ -6,70 +6,122 @@
                 <hr />
             </div>
             <div class="card-body" id="bar-parent">
-                <form  (ngSubmit)="onSubmitAdmin()" id="form_sample_1" class="form-horizontal" >
+                <form  novalidate #f="ngForm" (ngSubmit)="onSubmitAdmin()"  id="form_sample_1" class="form-horizontal" >
                     <div class="form-body">
+
                         <div class="form-group row">
                             <label class="control-label col-md-3">First Name<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <input type="text" [(ngModel)]="newAdmin.firstName" name="firstname" data-required="1" placeholder=" First name" class="form-control input-height" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Last Name<span class="required"> * </span></label>
-                            <div class="col-md-5">
-                                <input type="text" [(ngModel)]="newAdmin.lastName" name="lastname" data-required="1" placeholder=" Last name" class="form-control input-height" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Username<span class="required"> * </span></label>
-                            <div class="col-md-5">
-                                <input type="text" [(ngModel)]="newAdmin.username" name="username" data-required="1" placeholder=" Username" class="form-control input-height" /> 
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Password<span class="required"> * </span></label>
-                            <div class="col-md-5">
-                                <input type="password" [(ngModel)]="newAdmin.password" name="password" data-required="1" placeholder=" Password" class="form-control input-height" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Re-Type Password<span class="required"> * </span></label>
-                            <div class="col-md-5">
-                                <input type="password" [(ngModel)]="newAdmin.retypepassword" name="retypepassword" data-required="1" placeholder=" Re-Type Password" class="form-control input-height" /> 
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Mobile No.<span class="required"> * </span></label>
-                            <div class="col-md-5">
-                                <input [(ngModel)]="newAdmin.contactNumber" name="number" type="text" placeholder=" Contact number" class="form-control input-height" />
-                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Email</label>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input type="text" [(ngModel)]="newAdmin.email" name="email" class="form-control input-height"  placeholder=" Email Address"> 
+                                <input type="text" [(ngModel)]="newAdmin.firstName" required #firstName="ngModel" name="newAdmin.firstName" data-required="1" placeholder=" First name" class="form-control input-height" />
+                                <!-- ngIf will take firstName in firstName.errors from #firstName -->
+                                <div *ngIf="firstName.errors?.required && firstName.touched" class="alert alert-danger">
+                                        First name is required
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Address<span class="required"> * </span></label>
+                            <label class="control-label col-md-3">Last Name<span class="required"> * </span></label>
                             <div class="col-md-5">
-                                <textarea [(ngModel)]="newAdmin.address" name="address" placeholder="address" class="form-control-textarea" rows="5" ></textarea>
+                                <input type="text" [(ngModel)]="newAdmin.lastName" required  #lastName="ngModel" name="newAdmin.lastName" data-required="1" placeholder=" Last name" class="form-control input-height" />
+                                <div *ngIf="lastName.errors?.required && lastName.touched" class="alert alert-danger">
+                                        Last name is required
+                                </div>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Username<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input type="text" [(ngModel)]="newAdmin.username" required #username="ngModel" name="newAdmin.username" data-required="1" placeholder=" Username" class="form-control input-height" /> 
+                                <div *ngIf="username.errors?.required && username.touched" class="alert alert-danger">
+                                         Username is required
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- need to validation for password and confirm password -->
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Password<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input type="password" [(ngModel)]="newAdmin.password" minlength="8" #password="ngModel" required name="newAdmin.password" data-required="1" placeholder=" Password" class="form-control input-height" />
+                                <div *ngIf="password.errors?.required && password.touched" class="alert alert-danger">
+                                        Password is required
+                                </div>
+                                <div *ngIf="password.errors?.minlength && password.touched" class="alert alert-danger">
+                                        Password must contain minimum of 8 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Re-Type Password<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input type="password" [(ngModel)]="newAdmin.retypepassword" minlength="8" #retypepassword="ngModel" required name="newAdmin.retypepassword" validateEqual="password" data-required="1" placeholder=" Re-Type Password" class="form-control input-height" /> 
+                                <div *ngIf="retypepassword.errors?.required && retypepassword.touched" class="alert alert-danger">
+                                        Confirm Password is required
+                                </div>
+                                <div *ngIf="retypepassword.errors?.minlength && retypepassword.touched" class="alert alert-danger">
+                                        Confirm Password must contain minimum of 8 characters
+                                </div>
+                            </div>
+                        </div>
+                         <!-- need to validation for password and confirm password -->
+
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Mobile No.<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <input [(ngModel)]="newAdmin.contactNumber" #contactNumber="ngModel" name="newAdmin.contactNumber"  required minlength="10" maxlength="10" type="text" placeholder=" Contact number" class="form-control input-height" />
+                                <div *ngIf="contactNumber.errors?.required && contactNumber.touched" class="alert alert-danger">
+                                        Contact Number is required
+                                </div>
+                                <div *ngIf="contactNumber.errors?.minlength && contactNumber.touched" class="alert alert-danger">
+                                        Contact Number must have 10 digits
+                                </div>
+                            </div>
+                             
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Email<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <input type="text" [(ngModel)]="newAdmin.email" required pattern="[^ @]*@[^ @]*"
+                                    #email="ngModel" name="newAdmin.email" class="form-control input-height"  placeholder=" Email Address"> 
+                                </div>
+                                <div *ngIf="email.errors?.required && email.touched" class="alert alert-danger">
+                                        Email ID is required
+                                </div>
+                                <div *ngIf="email.errors?.pattern" class="alert alert-danger">
+                                        Email must contain at least the @ character and must be of type "abc@gmail.com"
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Address</label>
+                            <div class="col-md-5">
+                                <textarea [(ngModel)]="newAdmin.address" name="newAdmin.address" placeholder="address" class="form-control-textarea" rows="5" ></textarea>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label class="control-label col-md-3">Upload Picture</label>
                             <div class="compose-editor">
-                              <input type="file" [(ngModel)]="newAdmin.img" name="img" class="default" multiple>
+                              <input type="file" [(ngModel)]="newAdmin.img" name="newAdmin.img" class="default" multiple>
                           </div>
                         </div>
+
+                        <popup  #popup1>
+                                Added New Admin
+                        </popup>
+
                         <div class="form-actions">
                             <div class="row">
-                                <div class="offset-md-3 col-md-9">
-                                    <button type="submit" class="btn btn-info">Submit</button>&nbsp;&nbsp;&nbsp;
-                                    <button type="button" class="btn btn-default">Cancel</button> <br/><br/><br/>
+                                <div class="offset-md-3 col-md-9"><br/><br/>
+                                    <button type="submit" class="btn btn-info" (click)="ClickButton()" >Submit</button>
+                                  <br/><br/><br/>
                                 </div>
                             </div>
                         </div>
