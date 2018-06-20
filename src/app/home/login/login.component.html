@@ -16,9 +16,7 @@
               <form class="form-signin" (submit)="onLoginSubmit()">
                 <input type="text" [(ngModel)]="username" name = "username" class="form-control" placeholder="Username" required autofocus><br />
                 <input type="password" [(ngModel)] = "password" name="password" class="form-control" placeholder="Password" required><br/>
-                <input type="radio" class="roleinital" name="adminRole" value="admin"><span class="roletext">Admin</span>
-                <input type="radio" class="role" name="doctorRole" value="doctor"><span class="roletext">Doctor</span>
-                <input type="radio" class="role" name="patientRole" value="patient"><span class="roletext">Patient</span>
+                
                 <br/><br/><br/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 <label class="checkbox">
@@ -26,7 +24,6 @@
                     Remember me
                 </label>
                 <a routerLink="/forgotPassword" class="pull-right forgot-password">Forgot Password </a><span class="clearfix"></span>
-                <a routerLink="/changePassword" class="pull-right change-password">Change Password </a><span class="clearfix"></span>
               </form>
           </div>
   </div>
