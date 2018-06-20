@@ -2,6 +2,7 @@ import { IAppointment } from '../appointment/appointment';
 import { AppointmentAddComponent } from '../appointment/appointment-add/appointment-add.component';
 import { AppointmentService } from '../services/appointment.service';
 import { Component, OnInit } from '@angular/core';
+import { PrescriptionListComponent } from '../prescription/prescription-list/prescription-list.component';
 
 @Component({
   selector: 'app-patient',
@@ -22,12 +23,13 @@ export class PatientComponent implements OnInit {
   // show and hiding the components
   showAppointmentForm() {
     this.toggleAppointmentForm = !this.toggleAppointmentForm;
-    this.togglePrescriptionList = !this.togglePrescriptionList;
     this.toggleAppointmentList = !this.toggleAppointmentList;
   }
   showProfileForm() {
     this.toggleProfileForm = !this.toggleProfileForm;
-    this.togglePrescriptionList = !this.togglePrescriptionList;
     this.toggleAppointmentList = !this.toggleAppointmentList;
+  }
+  showPrescriptionForm(){
+    this.togglePrescriptionList = !this.togglePrescriptionList;
   }
 }

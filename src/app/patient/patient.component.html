@@ -35,6 +35,10 @@
 			<br> <br>
 			<button type="button" name="button" class="btn btn-primary"
 				(click)="showAppointmentForm()">View Doctors</button>
+			<br><br>
+			<button type="button" name="button" class="btn btn-primary"
+				(click)="showPrescriptionForm()">View Prescription</button>
+
 
 		</div>
 		<div class="col-sm-8 text-left">
@@ -51,8 +55,9 @@
 				<app-appointment-list></app-appointment-list>
 			</div>
 			<div class="container-fluid text-center" *ngIf="togglePrescriptionList">
-				<app-appointment-list></app-appointment-list>
+				<app-prescription-list></app-prescription-list>
 			</div>
+			
 			<!-- <div class='panel panel-primary'>
 				<div class='panel-heading'>{{prescriptionTitle}}</div>
 				<div class='panel-body'><app-appointment-list></app-appointment-list></div>
