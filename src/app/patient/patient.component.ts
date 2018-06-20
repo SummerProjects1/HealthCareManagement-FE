@@ -10,24 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientComponent implements OnInit {
   prescriptionTitle = 'Prescription List';
-  toggleAppointmentForm: boolean;
-  toggleProfileForm: boolean;
-  toggleAppointmentList = true;
-  togglePrescriptionList = true;
-
+  shown: string = 'DASHBOARD';
+  
   constructor() { }
   ngOnInit() {
-  }
-
-  // show and hiding the components
-  showAppointmentForm() {
-    this.toggleAppointmentForm = !this.toggleAppointmentForm;
-    this.togglePrescriptionList = !this.togglePrescriptionList;
-    this.toggleAppointmentList = !this.toggleAppointmentList;
-  }
-  showProfileForm() {
-    this.toggleProfileForm = !this.toggleProfileForm;
-    this.togglePrescriptionList = !this.togglePrescriptionList;
-    this.toggleAppointmentList = !this.toggleAppointmentList;
   }
 }
