@@ -63,12 +63,17 @@
 						<label for="">Message:</label> <br><input type="text"
 							class="form-control" name="appointMessage" value=""
 							[ngModel]="selectedAppointment.appointMessage" />
-					</div><br>
-					<div class="form-group" style="display: none;">
-						<label for="">Appoint Status:</label> <input type="text"
-							class="form-control" name="appointStatus" value=""
-							[ngModel]="selectedAppointment.appointStatus" />
-					</div><br>
+					</div><br><br />
+					<div class="form-group" *ngIf="user === 'doctor'">
+						<label for="">Appointment Status:</label><br /> 
+						<select [(ngModel)]="selectedAppointment.appointStatus" class="form-control" name="appointStatus" value="">
+							<option value="">Select...</option>
+                            <option value="Accepted">Accept</option>
+							<option value="Rejected">Reject</option>
+							<option value="Open">Open</option>
+							<option value="Close">Close</option>
+						</select>
+					</div><br><br /><br />
 					<button type="submit" name="button" class="btn btn-success">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<button type="submit" name="button" class="btn btn-primary" (click) = "showEditForm(appointment)" >Cancel</button>
 				</div>
