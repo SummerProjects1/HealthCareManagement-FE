@@ -14,6 +14,8 @@ import { UtilityService } from './services/utility.service';
 import { ValidateService } from './services/validate.service';
 import {FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthService } from './services/auth.service';
+//import { PrescriptionAddComponent } from './prescription/prescription-add/prescription-add.component';
+//import { PrescriptionListComponent } from './prescription/prescription-list/prescription-list.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: LoginComponent}
@@ -22,7 +24,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+   // PrescriptionAddComponent,
+  //  PrescriptionListComponent
   ],
   imports: [
     BrowserModule,

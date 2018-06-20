@@ -15,8 +15,10 @@
 				(click)="shown = 'VIEWAPPOINTMENT'">View Appointments</button>
 			<br> <br>
 			<button type="button" name="button" class="btn btn-primary"
-				(click)="shown = 'PROFILE'">My Profile</button>
+				(click)="shown = 'ADDPRESCRIPTION'">Add Prescription</button>
             <br> <br>
+			<button type="button" name="button" class="btn btn-primary"
+			(click)="shown = 'VIEWPRESCRIPTION'">View Prescription</button>
         </div>
 
         <div class="col-sm-8 text-left">
@@ -40,6 +42,15 @@
 				*ngIf="shown === 'VIEWAPPOINTMENT'">
 				<app-appointment-list></app-appointment-list>
 			</div>
+			<br> <br>
+			<div class="container-fluid text-center"
+				*ngIf="shown === 'ADDPRESCRIPTION'">
+				<app-prescription-add></app-prescription-add>
+            </div>
+            <br> <br>
+			<div class="container-fluid text-center"
+				*ngIf="shown === 'VIEWPRESCRIPTION'">
+				<app-prescription-list></app-prescription-list>
 			<div class="container-fluid text-center"
 				*ngIf="shown === 'PROFILE'">
 				<app-profile></app-profile>
