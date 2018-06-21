@@ -11,6 +11,7 @@ export class AppointmentService {
   serverURI: string = localStorage.getItem("serverApi");
   private appointmentApi = this.serverURI+"/appointment";
   private doctorApi = this.serverURI+"/doctor";
+  private patientApi = this.serverURI+"/patients";
 
   constructor(private _http: HttpClient) { }
 
@@ -43,6 +44,9 @@ export class AppointmentService {
   }
   getDoctorNames(doctorName):Observable<any>{
     return this._http.get(this.doctorApi+"/getDoctorNames/"+doctorName);
+  }
+  getPatientNames(patientName):Observable<any>{
+    return this._http.get(this.patientApi+"/getPatientNames/"+patientName);
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
