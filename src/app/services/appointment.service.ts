@@ -22,6 +22,10 @@ export class AppointmentService {
     );
   }
 
+  getAppointmentDetailsByEmail(email: string) {
+    return this._http.get<IAppointment[]>(this.appointmentApi+'/appointmentListFilter/'+email);
+  }
+
   makeAppointment(appointment: IAppointment) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');

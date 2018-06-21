@@ -15,23 +15,25 @@ export class AppointmentListComponent implements OnInit {
   toggleEditForm = false;
   selectedAppointment: IAppointment;
   user: string;
+  userEmail: string;
 
   constructor(private _appointmentService: AppointmentService) { }
 
   ngOnInit() {
-    this._appointmentService.getAppointments()
+
+    this.userEmail = localStorage.getItem("userEmail");
+    this.user = localStorage.getItem('loginBy');
+
+    this._appointmentService.getAppointmentDetailsByEmail(this.userEmail)
           .subscribe(appointments => { this.appointments = appointments,
              this.filteredAppointments = this.appointments;
        }, error => this.errorMessage = <any>error);
-    
-    this.user = localStorage.getItem('loginBy');
   }
 
   editAppointment(form) {
     console.log('hello');
     console.log('ddddd' + form.value._id);
     console.log('appointMessage' + this.selectedAppointment.appointMessage);
-    console.log('user = ' + this.user);
     
     let appointment = {
       _id: this.selectedAppointment._id,
