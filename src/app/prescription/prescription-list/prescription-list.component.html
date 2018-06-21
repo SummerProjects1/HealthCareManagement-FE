@@ -4,7 +4,7 @@
       <th scope="col">Date</th>
       <th scope="col">Time</th>
       <th scope="col">Patient</th>
-     <!-- <th scope="col">Doctor</th>-->
+      <th scope="col">Doctor Name</th>
       <th scope="col">Options</th>
     </tr>
   </thead>
@@ -12,7 +12,8 @@
       <tr *ngFor = 'let prescription of  prescriptions'>
       <td>{{prescription.prescriptionDate}}</td>
       <td>{{prescription.prescriptionTime}}</td>
-      <td>{{prescription.patientName}}</td>
+      <td>{{prescription.patientFName}}</td>
+      <td>{{prescription.doctorFName}}</td>
       <!--<td>Doctor1</td>-->
       <td> 
         <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#prescriptionModal" (click)=getPrescriptionDetails(prescription)> View Prescription</button>
@@ -31,14 +32,14 @@
             <h4 class="modal-title"> Prescription</h4><hr/>
             <div class="row">
                 <div class="col-sm-4 pull-left">
-                  <p>Patient Name:vgv</p>
+                  <p>Patient Name: {{selectedPrescription.patientFName}}</p>
                   <p>Age:12</p>
                   <p>Gender:Male</p>
                 </div>
                 <div class="col-sm-4 pull-right">
-                  <p>Doctor Name:Doctor1</p>
-                  <p>Date:09/08/2018</p>
-                  <p>Time:10:00AM</p>
+                  <p>Doctor Name: {{selectedPrescription.doctorFName}}</p>
+                  <p>Date: {{selectedPrescription.prescriptionDate}}</p>
+                  <p>Time: {{selectedPrescription.prescriptionTime}}</p>
                 </div>
               </div>
           </div>
@@ -50,7 +51,9 @@
                 <p>Medication</p>
               </div>
               <div class = "col-sm-8">
-               <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" cols="500" name="prescriptionListMedication"></textarea>
+               <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" cols="500" name="prescriptionListMedication">
+                  {{selectedPrescription.medication}}
+               </textarea>
               </div>
             </div>
           </div>
