@@ -17,7 +17,7 @@
 						<label for="">Appointment Type:</label><br><input type="text"
 							class="form-control" name="appointmentType" value="" ngModel>
 					</div><br>
-					<div class="form-group" >
+					<div class="form-group" *ngIf='loginBy == "patient"'>
 						<div class="input-field ">
 						  <label for="">Doctor Name:</label><br>
 						  <input id="doctorName" name="doctorName" type="text" list="dataList" class="form-control" [(ngModel)]=doctorName (keyup)=getDoctorNames()><a  data-toggle="modal" *ngIf='selectedDoctor !== undefined'  data-target="#doctorModal"> View Profile</a>
@@ -33,6 +33,22 @@
 							</table>
 						</div>
 					</div>  <br>
+					<div class="form-group" *ngIf='loginBy == "doctor"'>
+							<div class="input-field ">
+								<label for="">Patient Name:</label><br>
+								<input id="patientName" name="patientName" type="text" list="dataList" class="form-control" [(ngModel)]=patientName (keyup)=getPatientNames()><a  data-toggle="modal" *ngIf='selectedPatient !== undefined'  data-target="#patientModal"> View Profile</a>
+								<!--<datalist id="dataList" *ngIf="doctorsList.length > 0">
+									<option *ngFor="let doctor of doctorsList" value="{{doctor.firstName}}" ><a (click)="getSelectedDoctor(doctor)">{{doctor.lastName}}</a> </option>
+								</datalist>-->
+							</div>
+							<div class="suggestions" *ngIf="patientsList.length > 0">
+								<table >
+									<tr *ngFor="let patient of patientsList">
+										<td><a (click)="getSelectedPatient(patient)">{{patient.firstName}}</a></td>
+									</tr>
+								</table>
+							</div>
+						</div>  <br>
 					<div class="form-group">
 						<label for="">Date:</label><br><input type="text"
 							class="form-control" name="appointDate" value="" ngModel>
