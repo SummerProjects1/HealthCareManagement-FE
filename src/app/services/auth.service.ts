@@ -9,20 +9,22 @@ import { tokenNotExpired } from 'angular2-jwt';
 export class AuthService {
   authToken: any;
   user: any;
+  serverApi: string = localStorage.getItem("serverApi");
+  usersURI = this.serverApi+'/users';
 
   constructor(private http:Http) { }
 
   registerUser(user){
     let headers = new Headers();
     headers.append('Cntent-Type', 'application/json');
-    return this.http.post('http://localhost:4003/users/register', user, {headers: headers})
+    return this.http.post(this.usersURI+'/register', user, {headers: headers})
      .pipe(map(res => res.json()));
   }
   
   authenticateUser(user){
     let headers = new Headers();
     headers.append('Cntent-Type', 'application/json');
-    return this.http.post('http://localhost:4003/users/authenticate', user, {headers: headers})
+    return this.http.post(this.usersURI+'/authenticate', user, {headers: headers})
      .pipe(map(res => res.json()));
   }
 
@@ -42,7 +44,7 @@ export class AuthService {
     let headers = new Headers();
     let result:string;
     headers.append('Content-Type', 'application/json');
-     return this.http.put('http://localhost:4003/users/activate/'+token, {headers: headers});
+     return this.http.put(this.usersURI+'/activate/'+token, {headers: headers});
     //.subscribe((data) => {var body = data.json();  });
    }
 
@@ -50,7 +52,7 @@ export class AuthService {
     let headers = new Headers();
     let email_json ={"email":email};
     headers.append('Content-Type', 'application/json');
-     return this.http.put('http://localhost:4003/users/resendLink/', email_json, {headers: headers});
+     return this.http.put(this.usersURI+'/resendLink/', email_json, {headers: headers});
    }
 
    forgotPwdEmail(email: string){
@@ -58,7 +60,7 @@ export class AuthService {
     let email_json ={"email":email};
     console.log(email_json);
     headers.append('Content-Type', 'application/json');
-     return this.http.put('http://localhost:4003/users/forgotPwd/', email_json, {headers: headers});
+     return this.http.put(this.usersURI+'/forgotPwd/', email_json, {headers: headers});
    }
 
    resetPassword(password: string, token: string){
@@ -66,7 +68,7 @@ export class AuthService {
     let _json ={"password":password,"token":token};
     console.log(_json);
     headers.append('Content-Type', 'application/json');
-     return this.http.put('http://localhost:4003/users/resetPwd/', _json, {headers: headers});
+     return this.http.put(this.usersURI+'/resetPwd/', _json, {headers: headers});
    }
 
   /* logout(){

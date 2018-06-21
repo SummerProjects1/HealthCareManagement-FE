@@ -10,7 +10,8 @@ export class PatientService {
   
   constructor(private http: Http) { }
 
-  private serverApi = "http://localhost:4003/patients";
+  serverURI: string = localStorage.getItem("serverApi");
+  private serverApi = this.serverURI+"/patients";
 
   public getAllPatients():Observable<IPatients[]> {
 
@@ -21,7 +22,7 @@ export class PatientService {
 }
 
 getPatientDetailsByEmail(email) {
-  return this.http.get('http://localhost:4003/patients/patientDetails/'+email);
+  return this.http.get(this.serverApi+'/patientDetails/'+email);
 
 }
   public deletePatient(patientId : string) {
@@ -63,7 +64,7 @@ savePatientDetails(patient) {
  
     let headers = new Headers;
     headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:4003/patients/editPatient/' + patient._id, patient, { headers: headers});
+    return this.http.put(this.serverApi+'/editPatient/' + patient._id, patient, { headers: headers});
 }
 
 getPatientDetails(userName: string): Observable<IPatients> {

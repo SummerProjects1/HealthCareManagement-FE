@@ -11,17 +11,18 @@ export class PrescriptionService {
 
   constructor(private http: Http) { }
 
-  private serverApi = "http://localhost:4003/prescription";
+  serverURI: string = localStorage.getItem("serverApi");
+  private serverApi = this.serverURI+"/prescription";
 
   savePrescriptionDetails(prescriptionDetails){
    let headers = new Headers();
    headers.append('Cntent-Type', 'application/json');
-   return this.http.post('http://localhost:4003/prescription/addPrescription', prescriptionDetails, {headers: headers})
+   return this.http.post(this.serverApi+'/addPrescription', prescriptionDetails, {headers: headers})
 
   }
   public getPrescription() {
 
-    let URI = "http://localhost:4003/prescription/prescripts/";
+    let URI = this.serverApi+"/prescripts/";
     return this.http.get(URI);
 }
 
