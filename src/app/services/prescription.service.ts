@@ -24,5 +24,8 @@ export class PrescriptionService {
     let URI = "http://localhost:4003/prescription/prescripts/";
     return this.http.get(URI);
 }
+getPatientNames(patientName):Observable<any>{
+  return this.http.get("http://localhost:4003/patient/getPatientNames/"+patientName);
+}
 
 }

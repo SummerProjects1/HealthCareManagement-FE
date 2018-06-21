@@ -20,12 +20,20 @@
           <label>Patient</label>
         </div>
         <div class="col-sm-4">
-          <select class="selectpicker" title="Select patient" style="width:150px" [(ngModel)]="selectPatient" name="selectPatient">
+          <!-- <select class="selectpicker" title="Select patient" style="width:150px" [(ngModel)]="selectPatient" name="selectPatient">
               <option value="">Select Patient</option>
             <option>Patient1</option>
             <option>PAtient2</option>
-          </select>
+          </select> -->
+          <input class="input-field"  type="text" list="dataList" placeholder="Select Patient" [(ngModel)]="patientName" name="patientName" (keyup)=getPatientNames()>
         </div>
+        <div class="suggestions" *ngIf="patientList.length > 0">
+            <table >
+              <tr *ngFor="let patient of patientList">
+                <td><a (click)="getSelectedPatient(patient)">{{patient.firstName}}</a></td>
+              </tr>
+            </table>
+          </div>
       </div>
       <div class="form-group row">
         <div class="col-sm-2">
