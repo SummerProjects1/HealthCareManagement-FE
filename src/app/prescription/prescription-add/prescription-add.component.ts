@@ -31,14 +31,16 @@ export class PrescriptionAddComponent implements OnInit {
   ngOnInit() {
   }
   savePrescription(frm){
-    console.log('patientName'+this.patientName);
-    console.log('patientName'+frm.value.patientName);
-    console.log('added');
     const prescriptionDetails = {
       prescriptionDate: this.prescriptionDate,
       prescriptionTime: this.prescriptionTime,
-      patientName: frm.value.patientName,
+      patientFName: frm.value.patientName,
       medication: this.medication,
+      patientLName: this.selectedPatient.lastName,
+      patientEmail: this.selectedPatient.email,
+      doctorFName: localStorage.getItem("userFName"),
+      doctorLName: localStorage.getItem("userLName"),
+      doctorEmail: localStorage.getItem("email")
 
     }
      this.prescriptionService. savePrescriptionDetails(prescriptionDetails).subscribe(data=>{
@@ -68,7 +70,6 @@ export class PrescriptionAddComponent implements OnInit {
   getSelectedPatient(patient){
     this.selectedPatient = patient;
     this.patientName  =patient.firstName;
-    console.log("selected patient: "+ this.selectedPatient);
     this.patientList=[];
   }
 

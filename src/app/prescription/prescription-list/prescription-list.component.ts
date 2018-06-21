@@ -15,7 +15,9 @@ export class PrescriptionListComponent implements OnInit {
   patientName: String;
   patient: IPatient;
   selectedPatient:IPatient;
+  selectedPrescription: IPrescription;
   data;
+  loginBy:string = localStorage.getItem("loginBy");
 
   constructor(
     private prescriptionService:PrescriptionService
@@ -26,6 +28,11 @@ export class PrescriptionListComponent implements OnInit {
       var body = data.json();
       this.prescriptions = body;
     });
+  }
+
+  getPrescriptionDetails(prescription){
+    console.log(prescription);
+    this.selectedPrescription = prescription;
   }
 
  
