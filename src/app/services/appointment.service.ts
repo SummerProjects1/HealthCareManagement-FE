@@ -15,7 +15,7 @@ export class AppointmentService {
   constructor(private _http: HttpClient) { }
 
   getAppointments(): Observable<IAppointment[]> {
-    return this._http.get<IAppointment[]>(this.appointmentApi)
+    return this._http.get<IAppointment[]>(this.appointmentApi+'/appointments')
     .pipe(
       tap(appointments => this.log(`fetched Appointments`)),
       catchError(this.handleError('getAppointments', []))
