@@ -63,7 +63,7 @@ savePatientDetails(patient) {
  
     let headers = new Headers;
     headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:4003/patient/editPatient/' + patient._id, patient, { headers: headers});
+    return this.http.put('http://localhost:4003/patients/editPatient/' + patient._id, patient, { headers: headers});
 }
 
 getPatientDetails(userName: string): Observable<IPatients> {
