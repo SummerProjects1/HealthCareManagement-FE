@@ -20,6 +20,10 @@ export class PatientService {
         .pipe(map(res => <IPatients[]>res.patients));
 }
 
+getPatientDetailsByEmail(email) {
+  return this.http.get('http://localhost:4003/patients/patientDetails/'+email);
+
+}
   public deletePatient(patientId : string) {
     let URI = `${this.serverApi}/deletePatient/${patientId}`;
       let headers = new Headers;

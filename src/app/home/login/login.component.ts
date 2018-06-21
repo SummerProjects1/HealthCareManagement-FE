@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         cssClass: 'alert-success',
          timeout: 5000});
          localStorage.setItem("loginBy", data.user.userType);
+         localStorage.setItem("userEmail", data.user.email);
          this._homeComponent.ngOnInit();
          this.navigateUrl = data.user.userType;
          this.router.navigate([this.navigateUrl]);         

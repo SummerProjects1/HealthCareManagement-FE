@@ -33,10 +33,10 @@ export class AppointmentListComponent implements OnInit {
     console.log('appointMessage' + this.selectedAppointment.appointMessage);
     console.log('user = ' + this.user);
     
-    let appointment: IAppointment = {
+    let appointment = {
       _id: this.selectedAppointment._id,
       appointmentType: form.value.appointmentType,
-      doctorName: form.value.doctorName,
+      doctorFName: form.value.doctorName,
       appointDate: form.value.appointDate,
       appointTime: form.value.appointTime,
       appointMessage: form.value.appointMessage,

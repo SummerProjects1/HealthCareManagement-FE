@@ -19,29 +19,41 @@ export class AppointmentAddComponent implements OnInit {
   doctorName: string;
   selectedDoctor: IDoctor;
   data;
+  successMessage: string;
+  failMessage: string;
+  appointmentResult;
 
   constructor(private _appointmentService: AppointmentService, private _route: ActivatedRoute,
     private _router: Router) { 
       
     }
   ngOnInit() {
-    console.log('dddd'+this.selectedDoctor)
   }
 
   makeAppointment(form) {
     let appointment: IAppointment = {
       _id: '',
       appointmentType: form.value.appointmentType,
-      doctorName: form.value.doctorName,
+      doctorFName: form.value.doctorName,
       appointDate: form.value.appointDate,
       appointTime: form.value.appointTime,
       appointMessage: form.value.appointMessage,
-      appointStatus: form.value.appointStatus
+      appointStatus: form.value.appointStatus,
+      doctorLName: this.selectedDoctor.lastName,
+      doctorEmail: this.selectedDoctor.email,
+      patientFName: localStorage.getItem("userFName"),
+      patientLName: localStorage.getItem("userLName"),
+      patientEmail: localStorage.getItem("email")
     };
     console.log('appointment' + appointment);
     this._appointmentService.makeAppointment(appointment)
-        .subscribe(item => {
-          //TODO
+        .subscribe(data => { 
+          this.appointmentResult = data;
+          if(this.appointmentResult.success){
+            this.successMessage = this.appointmentResult.msg;
+          }else{
+            this.failMessage = this.appointmentResult.msg;
+          }
         });
   }
   getDoctorNames(){

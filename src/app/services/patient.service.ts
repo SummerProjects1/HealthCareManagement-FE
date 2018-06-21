@@ -20,14 +20,6 @@ export class PatientService {
     return this._http.put('http://localhost:4003/patient/editPatient/' + patient._id, patient, { headers: headers});
   }
 
-   /* getPatientDetails() {
-  return this._http.get<IPatient>('http://localhost:4003/patient/patientDetails/nagarjunakuppala')
-    .pipe(
-      tap(patient => console.log(`fetched patient details` +patient.userName)
-    ));
-    return this._http.get('http://localhost:4003/patient/patientDetails/nagarjunakuppala');
-  }*/
-
   getPatients(): Observable<IPatient[]> {
    return this._http.get<IPatient[]>('http://localhost:4003/patient/patients')
     .pipe(

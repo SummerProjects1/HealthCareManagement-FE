@@ -1,3 +1,10 @@
+<div class="row show-hide-message" *ngIf="successMessage">
+		<div class="alert alert-success">{{successMessage}}</div>
+	</div>
+	<div class="row show-hide-message" *ngIf="failMessage">
+	  <div class="alert alert-danger">{{failMessage}}</div>
+	</div>
+
 <div class='panel panel-primary'>
 	<div class='panel-heading'>
 		{{addAppointmentTitle}}	
@@ -45,7 +52,7 @@
 	</div>
 </div>
 
-<div class = "modal" id = "doctorModal" tabindex="-1">
+<div class = "modal" id = "doctorModal" tabindex="-1" *ngIf='selectedDoctor !== undefined'>
 		<div class = "modal-dialog">
   
 		  <!--modal content-->
