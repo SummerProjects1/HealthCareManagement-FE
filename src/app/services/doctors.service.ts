@@ -51,4 +51,8 @@ export class DoctorService
     return this.http.post(URI, body ,{headers: headers})
     .pipe(map(res => res.json()));
   }
+  getDoctorDetailsByEmail(email) {
+    return this.http.get(this.serverApi+'/doctorDetails/'+email);
+  
+  }
 }  
