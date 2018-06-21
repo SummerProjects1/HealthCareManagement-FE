@@ -25,5 +25,8 @@ export class PrescriptionService {
     let URI = this.serverApi+"/prescripts/";
     return this.http.get(URI);
 }
+getPatientNames(patientName):Observable<any>{
+  return this.http.get("http://localhost:4003/patient/getPatientNames/"+patientName);
+}
 
 }
