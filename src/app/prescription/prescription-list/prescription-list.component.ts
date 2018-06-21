@@ -18,16 +18,22 @@ export class PrescriptionListComponent implements OnInit {
   selectedPrescription: IPrescription;
   data;
   loginBy:string = localStorage.getItem("loginBy");
+  userEmail: string;
 
   constructor(
     private prescriptionService:PrescriptionService
   ) { }
 
   ngOnInit() {
-    this.prescriptionService. getPrescription().subscribe(data => {
-      var body = data.json();
-      this.prescriptions = body;
-    });
+    this.userEmail = localStorage.getItem("userEmail");
+
+    this.prescriptionService.getAppointmentDetailsByEmail(this.userEmail)
+          .subscribe(data => {
+              var body = data.json();
+              if(body.success){
+                this.prescriptions = body.prescriptions;
+              }
+          });
   }
 
   getPrescriptionDetails(prescription){

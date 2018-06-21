@@ -29,4 +29,7 @@ getPatientNames(patientName):Observable<any>{
   return this.http.get("http://localhost:4003/patients/getPatientNames/"+patientName);
 }
 
+getAppointmentDetailsByEmail(email: string) {
+  return this.http.get(this.serverApi+'/prescriptListFilter/'+email);
+} 
 }
