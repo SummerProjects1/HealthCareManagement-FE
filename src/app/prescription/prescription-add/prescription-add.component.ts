@@ -20,6 +20,8 @@ export class PrescriptionAddComponent implements OnInit {
   patient: IPatient;
   selectedPatient:IPatient;
   data;
+  successMessage: String;
+  failMessage: String;
 
 
   constructor(
@@ -43,8 +45,15 @@ export class PrescriptionAddComponent implements OnInit {
       doctorEmail: localStorage.getItem("email")
 
     }
-     this.prescriptionService. savePrescriptionDetails(prescriptionDetails).subscribe(data=>{
-      this.flashMessage.show("Prescription added Successfully", {cssClass: 'alert-success', timeout:1000});        
+     this.prescriptionService. savePrescriptionDetails(prescriptionDetails)
+     .subscribe(data=>{
+        var dataJson = data.json();
+        if(dataJson.success){
+          this.successMessage = dataJson.msg;
+          this.flashMessage.show("Prescription added Successfully", {cssClass: 'alert-success', timeout:1000});  
+        }else{
+          this.failMessage = dataJson.msg;
+        }       
      })  
   }
 
