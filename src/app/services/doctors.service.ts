@@ -44,7 +44,6 @@ export class DoctorService
       department:doctor.department,
       gender:doctor.gender,
       dob:doctor.dob,
-      img: doctor.img,
      });
     console.log(body);
     headers.append('Content-Type', 'application/json');

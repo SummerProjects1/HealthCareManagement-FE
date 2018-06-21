@@ -22,32 +22,4 @@ export class AdminComponent implements OnInit {
     localStorage.setItem("logoutHappened", 'true');
     this._homeComponent.ngOnInit();
   }
-
-  /*toggleAddAdminForm: boolean;
-  toggleViewAdminForm: boolean = true;
-  toggleViewDoctorForm: boolean = true;
-  toggleAddDoctorForm: boolean = true;
-  toggleAddProfileForm: boolean = true;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  showAddAdminForm() {
-    this.toggleAddAdminForm = !this.toggleAddAdminForm;
-  }
-  showViewAdminForm() {
-    this.toggleViewAdminForm = !this.toggleViewAdminForm;
-  }
-  showViewDoctorForm() {
-    this.toggleViewDoctorForm = !this.toggleViewDoctorForm;
-  }
-  showAddDoctorForm() {
-    this.toggleAddDoctorForm = !this.toggleAddDoctorForm;
-  }
-  showAddProfileForm() {
-    this.toggleAddProfileForm = !this.toggleAddProfileForm;
-  }*/
-
 }

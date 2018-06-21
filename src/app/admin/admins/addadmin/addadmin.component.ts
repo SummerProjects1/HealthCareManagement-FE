@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Location } from '@angular/common';
-import { NgModule, ViewChild } from '@angular/core';
+//import { Location } from '@angular/common';
+import { ViewChild } from '@angular/core';
 import { FormsModule, FormGroup, FormControl } from '@angular/forms';
 //import {Popup} from 'ng2-opd-popup';
 
@@ -21,7 +21,7 @@ export class AddadminComponent implements OnInit {
   private newAdmin :IAdmin;
 
   constructor( private _adminService: AdminService,
-    private location: Location
+    //private location: Location
             ) { }
 
   ngOnInit() {
@@ -35,8 +35,7 @@ export class AddadminComponent implements OnInit {
       retypepassword: '',
       contactNumber: null,
       email: '',
-      address: '',
-      img: ''
+      address: ''
   }
 }
 
@@ -51,10 +50,6 @@ export class AddadminComponent implements OnInit {
         }
       ); 
       this.form.reset();
-      /*if (this.form.valid) {
-        console.log("Form Submitted!");
-        this.form.reset();
-      }*/// this.load()  
   }
 
   /*ClickButton(){
@@ -73,6 +68,7 @@ export class AddadminComponent implements OnInit {
     };
     this.popup1.show(this.popup1.options);
   }*/
+  
   ClickButton(){
     alert('NEW ADMIN ADDED...!!');
   }

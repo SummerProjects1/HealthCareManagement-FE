@@ -8,5 +8,4 @@ export interface IAdmin {
     contactNumber: number;
     email: string;
     address: string;
-    img: string;
 }
