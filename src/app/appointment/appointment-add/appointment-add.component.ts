@@ -108,13 +108,13 @@ export class AppointmentAddComponent implements OnInit {
       var appointment : IAppointment = {
         _id: '',
         appointmentType: form.value.appointmentType,
-        patientFName: form.value.doctorName,
+        patientFName: form.value.patientName,
         appointDate: form.value.appointDate,
         appointTime: form.value.appointTime,
         appointMessage: form.value.appointMessage,
         appointStatus: form.value.appointStatus,
-        patientLName: this.selectedDoctor.lastName,
-        patientEmail: this.selectedDoctor.email,
+        patientLName: this.selectedPatient.lastName,
+        patientEmail: this.selectedPatient.email,
         doctorFName : localStorage.getItem("userFName"),
         doctorLName : localStorage.getItem("userLName"),
         doctorEmail: localStorage.getItem("email")
