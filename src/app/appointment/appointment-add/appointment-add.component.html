@@ -6,14 +6,26 @@
 		<div>
 			<form class="form-inline" #frm="ngForm" (ngSubmit) = "makeAppointment(frm)">
 				<div class="form-group">
-					<div class="form-group">
+					<div class="form-group ">
 						<label for="">Appointment Type:</label><br><input type="text"
 							class="form-control" name="appointmentType" value="" ngModel>
 					</div><br>
-					<div class="form-group">
-						<label for="">Doctor:</label><br><input type="text"
-							class="form-control" name="doctorName" value="" ngModel>
-					</div><br>
+					<div class="form-group" >
+						<div class="input-field ">
+						  <label for="">Doctor Name:</label><br>
+						  <input id="doctorName" name="doctorName" type="text" list="dataList" class="form-control" [(ngModel)]=doctorName (keyup)=getDoctorNames()><a  data-toggle="modal" *ngIf='selectedDoctor !== undefined'  data-target="#doctorModal"> View Profile</a>
+						  <!--<datalist id="dataList" *ngIf="doctorsList.length > 0">
+								<option *ngFor="let doctor of doctorsList" value="{{doctor.firstName}}" ><a (click)="getSelectedDoctor(doctor)">{{doctor.lastName}}</a> </option>
+							</datalist>-->
+						</div>
+						<div class="suggestions" *ngIf="doctorsList.length > 0">
+							<table >
+								<tr *ngFor="let doctor of doctorsList">
+									<td><a (click)="getSelectedDoctor(doctor)">{{doctor.firstName}}</a></td>
+								</tr>
+							</table>
+						</div>
+					</div>  <br>
 					<div class="form-group">
 						<label for="">Date:</label><br><input type="text"
 							class="form-control" name="appointDate" value="" ngModel>
@@ -32,4 +44,62 @@
 		</div>
 	</div>
 </div>
+
+<div class = "modal" id = "doctorModal" tabindex="-1">
+		<div class = "modal-dialog">
+  
+		  <!--modal content-->
+		  <div class = "modal-content">
+			<div class = "modal-header">
+			  <button class="close" data-dismiss="modal">&times;</button>
+			  <h4 class="modal-title"> Doctor Profile</h4><hr/>
+			  <div class="row">
+				  <div class="col-sm-4 pull-left">
+					<p>First Name: {{selectedDoctor.firstName}}</p>
+					<p>Last Name: {{selectedDoctor.lastName}}</p>
+					<p>Gender: {{selectedDoctor.gender}}</p>
+				  </div>
+				  <div class="col-sm-4 pull-right">
+					<p>Specialisation: {{selectedDoctor.specialization}}</p>
+					<p>Department: {{selectedDoctor.department}}</p>
+					<p></p>
+				  </div>
+				</div>
+			</div>
+  
+			<!--modal body section-->
+			<div class="modal-body">
+			  <div class="row">
+				<div class = "col-sm-2">
+				  <p>Address</p>
+				</div>
+				<div class = "col-sm-8">
+				 <textarea class="form-control" id="address" rows="2" cols="300" name="address" readonly>{{selectedDoctor.address}}</textarea>
+				</div>
+			  </div>
+			  <div class="row">
+					<div class = "col-sm-2">
+					  <p>Email</p>
+					</div>
+					<div class = "col-sm-8">
+					 <p>{{selectedDoctor.email}}</p>
+					</div>
+				</div>
+				<div class="row">
+						<div class = "col-sm-2">
+						  <p>Contact Number</p>
+						</div>
+						<div class = "col-sm-8">
+						 <p>{{selectedDoctor.contactNumber}}</p>
+						</div>
+					</div>
+			</div>
+  
+			<!--modal footer section-->
+			<div class = "modal-footer">
+			  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 

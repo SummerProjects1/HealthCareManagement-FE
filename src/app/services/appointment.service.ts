@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fromEvent } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
+import { IDoctor } from '../admin/doctors';
 
 @Injectable()
 export class AppointmentService {
@@ -20,22 +21,22 @@ export class AppointmentService {
   }
 
   makeAppointment(appointment: IAppointment) {
-     console.log('appointment' + appointment);
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this._http.post('http://localhost:4003/appointment/addAppointment', appointment, { headers: headers});
   }
 
   editAppointment(appointment) {
-    console.log('id'+ appointment._id);
-    console.log('console '+ appointment);
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this._http.put('http://localhost:4003/appointment/editAppointment/' + appointment._id, appointment, { headers: headers});
   }
   
-   removeAppointment(id) {
+  removeAppointment(id) {
     return this._http.delete('http://localhost:4003/appointment/deleteAppointment/' + id );
+  }
+  getDoctorNames(doctorName):Observable<any>{
+    return this._http.get("http://localhost:4003/doctor/getDoctorNames/"+doctorName);
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
