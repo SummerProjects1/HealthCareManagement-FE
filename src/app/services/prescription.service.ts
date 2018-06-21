@@ -21,12 +21,12 @@ export class PrescriptionService {
 
   }
   public getPrescription() {
-
+ 
     let URI = this.serverApi+"/prescripts/";
     return this.http.get(URI);
 }
 getPatientNames(patientName):Observable<any>{
-  return this.http.get("http://localhost:4003/patient/getPatientNames/"+patientName);
+  return this.http.get("http://localhost:4003/patients/getPatientNames/"+patientName);
 }
 
 }

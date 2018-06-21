@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <form (ngSubmit)="savePrescription()" >
+  <form #frm="ngForm" (ngSubmit)="savePrescription(frm)" >
     <h2> Add Prescription</h2><hr/>
      <div class="form-group row">
         <div class="col-sm-2">
@@ -25,7 +25,7 @@
             <option>Patient1</option>
             <option>PAtient2</option>
           </select> -->
-          <input class="input-field"  type="text" list="dataList" placeholder="Select Patient" [(ngModel)]="patientName" name="patientName" (keyup)=getPatientNames()>
+          <input class="input-field"  type="text" [(ngModel)]="patientName" name="patientName" (keyup)=getPatientNames()>
         </div>
         <div class="suggestions" *ngIf="patientList.length > 0">
             <table >
