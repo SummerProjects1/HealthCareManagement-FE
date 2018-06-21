@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrescriptionService} from '../../services/prescription.service';
+import { FlashMessagesService} from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 
 
@@ -16,7 +17,8 @@ export class PrescriptionAddComponent implements OnInit {
 
   constructor(
     private prescriptionService:PrescriptionService,
-    private router:Router
+    private router:Router,
+    private flashMessage: FlashMessagesService,
   ) { }
 
   ngOnInit() {
@@ -31,11 +33,10 @@ export class PrescriptionAddComponent implements OnInit {
 
     }
 
-   
-
-    /* this.prescriptionService. savePrescriptionDetails(prescriptionDetails) {
-      console.log('added prescription');
-    } */
+     this.prescriptionService. savePrescriptionDetails(prescriptionDetails).subscribe(data=>{
+      this.flashMessage.show("Prescription added Successfully", {cssClass: 'alert-success', timeout:1000});        
+     })
+    
   }
 
 }
