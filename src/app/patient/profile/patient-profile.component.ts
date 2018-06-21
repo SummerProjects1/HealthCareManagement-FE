@@ -1,6 +1,6 @@
-import { PatientService } from '../../services/patient.service';
-import { IPatient } from '../patient';
 import { Component, OnInit } from '@angular/core';
+import { PatientService } from '../../services/patients.service';
+import { IPatients } from '../../models/patients';
 
 @Component({
   selector: 'app-patient-profile',
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientProfileComponent implements OnInit {
 
-  patient: IPatient;
+  patient: IPatients;
   errorMessage: any;
 
   constructor(private _patientService: PatientService) { }
@@ -24,12 +24,11 @@ export class PatientProfileComponent implements OnInit {
     console.log('hello');
     console.log('ddddd' + form.value._id);
     console.log('contactNumber' + this.patient.contactNumber);
-    let patient: IPatient = {
+    let patient  = {
       _id: this.patient._id,
-      userName: form.value.userName,
+      username: form.value.userName,
       firstName: form.value.firstName,
       lastName: form.value.lastName,
-      password: form.value.password,
       address: form.value.address,
       contactNumber: form.value.contactNumber,
       email: form.value.email

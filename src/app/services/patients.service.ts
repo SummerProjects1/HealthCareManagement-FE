@@ -39,7 +39,6 @@ getPatientDetailsByEmail(email) {
       firstName: patient.firstName,
       lastName: patient.lastName,
       username: patient.username,
-      password: patient.password,
       dateOfBirth: patient.dateOfBirth,
       gender: patient.gender,
       age: patient.age,
@@ -57,6 +56,24 @@ getPatientDetailsByEmail(email) {
     headers.append('Content-Type', 'application/json');
     return this.http.post(URI, body ,{headers: headers})
     .pipe(map(res => res.json()));
+}
+
+
+savePatientDetails(patient) {
+ 
+    let headers = new Headers;
+    headers.append('Content-Type', 'application/json');
+    return this.http.put('http://localhost:4003/patient/editPatient/' + patient._id, patient, { headers: headers});
+}
+
+getPatientDetails(userName: string): Observable<IPatients> {
+    return this.getAllPatients().pipe(
+        map((patients: IPatients[]) => patients.find(p => p.username === userName)));
+}
+
+
+private log(message: string) {
+    console.log('AppointmentService: ' + message);
 }
 
 }  
