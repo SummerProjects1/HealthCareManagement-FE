@@ -12,10 +12,10 @@
       <tr *ngFor = 'let prescription of  prescriptions'>
       <td>{{prescription.prescriptionDate}}</td>
       <td>{{prescription.prescriptionTime}}</td>
-      <td>{{prescription.selectPatient}}</td>
+      <td>{{prescription.patientName}}</td>
       <!--<td>Doctor1</td>-->
       <td> 
-        <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#prescriptionModal"> View Prescription</button>
+        <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#prescriptionModal" (keyup)=getPatientNames()> View Prescription</button>
         <button class="btn btn-info btn-lg editbtn"> Edit</button> 
       </td>
     </tr>
@@ -31,7 +31,7 @@
             <h4 class="modal-title"> Prescription</h4><hr/>
             <div class="row">
                 <div class="col-sm-4 pull-left">
-                  <p>Patient Name: Patient1</p>
+                  <p>Patient Name:vgv</p>
                   <p>Age:12</p>
                   <p>Gender:Male</p>
                 </div>

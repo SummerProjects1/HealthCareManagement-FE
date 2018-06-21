@@ -30,13 +30,15 @@ export class PrescriptionAddComponent implements OnInit {
 
   ngOnInit() {
   }
-  savePrescription(){
+  savePrescription(frm){
+    console.log('patientName'+this.patientName);
+    console.log('patientName'+frm.value.patientName);
     console.log('added');
     const prescriptionDetails = {
       prescriptionDate: this.prescriptionDate,
       prescriptionTime: this.prescriptionTime,
-      selectPatient: this.selectPatient,
-      medication: this.medication
+      patientName: frm.value.patientName,
+      medication: this.medication,
 
     }
      this.prescriptionService. savePrescriptionDetails(prescriptionDetails).subscribe(data=>{
@@ -45,14 +47,13 @@ export class PrescriptionAddComponent implements OnInit {
   }
 
   getPatientNames(){
-    console.log("this.patientname :"+ this.patientName);
     if(this.patientName !==""){
        var data = this.prescriptionService.getPatientNames(this.patientName)
               .subscribe(data =>{
                 this.data = data;
-                if(this.data.success){
-                  this.patientList = this.data.patient;
-                  console.log(this.patientList)
+                var dataJson = this.data.json();
+                if(dataJson.success){
+                  this.patientList = dataJson.patient;
                   if(this.patientList.length==0){
                     this.patientList =[];
                   }
