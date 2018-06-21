@@ -1,6 +1,6 @@
-import { PatientService } from '../../services/patient.service';
-import { IPatient } from '../patient';
 import { Component, OnInit } from '@angular/core';
+import { PatientService } from '../../services/patients.service';
+import { IPatients } from '../../models/patients';
 
 @Component({
   selector: 'app-patient-profile',
@@ -9,35 +9,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientProfileComponent implements OnInit {
 
-  patient: IPatient;
+  patient: IPatients;
   errorMessage: any;
+  userEmail: string;
+  successMessage: string;
+  failMessage: string;
+  result;
 
   constructor(private _patientService: PatientService) { }
 
   ngOnInit() {
-     this._patientService.getPatientDetails('nagarjunakuppala')
-       .subscribe( patient => this.patient = patient,
-      error => this.errorMessage = <any>error);
+    this.userEmail = localStorage.getItem("userEmail");
+    console.log("user email:" +this.userEmail);
+    this._patientService.getPatientDetailsByEmail(this.userEmail)
+        .subscribe(data =>{
+          var body = data.json();
+          if(body.success){
+            this.patient = body.patient;
+          }
+        });
   }
 
   savePatientDetails(form) {
-    console.log('hello');
-    console.log('ddddd' + form.value._id);
-    console.log('contactNumber' + this.patient.contactNumber);
-    let patient: IPatient = {
+    let patient  = {
       _id: this.patient._id,
-      userName: form.value.userName,
+      username: form.value.userName,
       firstName: form.value.firstName,
       lastName: form.value.lastName,
-      password: form.value.password,
       address: form.value.address,
       contactNumber: form.value.contactNumber,
       email: form.value.email
     };
     this._patientService.savePatientDetails(patient)
-      .subscribe(result => {
-        console.log('Patient details updated successfully');
-        this.ngOnInit();
+      .subscribe(data => {
+        this.result = data.json();
+          if(this.result.success){
+            this.successMessage = this.result.msg;
+          }else{
+            this.failMessage = this.result.msg;
+          }
       });
   }
 

@@ -10,7 +10,8 @@ export class PatientService {
   
   constructor(private http: Http) { }
 
-  private serverApi = "http://localhost:4003/patients";
+  serverURI: string = localStorage.getItem("serverApi");
+  private serverApi = this.serverURI+"/patients";
 
   public getAllPatients():Observable<IPatients[]> {
 
@@ -21,7 +22,7 @@ export class PatientService {
 }
 
 getPatientDetailsByEmail(email) {
-  return this.http.get('http://localhost:4003/patients/patientDetails/'+email);
+  return this.http.get(this.serverApi+'/patientDetails/'+email);
 
 }
   public deletePatient(patientId : string) {
@@ -39,7 +40,6 @@ getPatientDetailsByEmail(email) {
       firstName: patient.firstName,
       lastName: patient.lastName,
       username: patient.username,
-      password: patient.password,
       dateOfBirth: patient.dateOfBirth,
       gender: patient.gender,
       age: patient.age,
@@ -57,6 +57,24 @@ getPatientDetailsByEmail(email) {
     headers.append('Content-Type', 'application/json');
     return this.http.post(URI, body ,{headers: headers})
     .pipe(map(res => res.json()));
+}
+
+
+savePatientDetails(patient) {
+ 
+    let headers = new Headers;
+    headers.append('Content-Type', 'application/json');
+    return this.http.put(this.serverApi+'/editPatient/' + patient._id, patient, { headers: headers});
+}
+
+getPatientDetails(userName: string): Observable<IPatients> {
+    return this.getAllPatients().pipe(
+        map((patients: IPatients[]) => patients.find(p => p.username === userName)));
+}
+
+
+private log(message: string) {
+    console.log('AppointmentService: ' + message);
 }
 
 }  

@@ -10,7 +10,8 @@ export class DoctorService
 {
   constructor(private http: Http) { }
 
-  private serverApi = "http://localhost:4003/doctor";
+  serverURI: string = localStorage.getItem("serverApi");
+  private serverApi = this.serverURI+"/doctor";
 
   public getAllDoctors():Observable<IDoctor[]> {
 

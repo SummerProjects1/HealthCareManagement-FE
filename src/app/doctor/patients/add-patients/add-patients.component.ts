@@ -28,7 +28,6 @@ export class AddPatientsComponent implements OnInit {
       firstName: '',
       lastName: '',
       username: '',
-      password: '',
       dateOfBirth: '',
       gender: '',
       age: null,

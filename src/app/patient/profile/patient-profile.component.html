@@ -1,6 +1,12 @@
 <div>
 	<form class="form-inline" #frm="ngForm"
 		(ngSubmit)="savePatientDetails(frm)">
+			<div class="row show-hide-message" *ngIf="successMessage">
+				<div class="alert alert-success">{{successMessage}} </div>
+			</div>
+			<div class="row show-hide-message" *ngIf="failMessage">
+			  <div class="alert alert-danger">{{failMessage}}</div>
+			</div>
 		<div class="form-group" *ngIf="patient !== undefined">
 			<div class="form-group">
 				<label for="">User Name:</label><br>
@@ -18,12 +24,6 @@
 				<label for="">Last Name:</label><br> <input type="text"
 					class="form-control" name="lastName" value=""
 					[ngModel]="patient.lastName" />
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="">Password:</label> <br>
-				<input type="text" class="form-control" name="password" value=""
-					[ngModel]="patient.password" />
 			</div>
 			<br>
 			<div class="form-group">

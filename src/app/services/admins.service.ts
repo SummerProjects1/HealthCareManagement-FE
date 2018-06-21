@@ -10,7 +10,8 @@ export class AdminService
 {
   constructor(private http: Http) { }
 
-  private serverApi = "http://localhost:4003/admin";
+  serverURI: string = localStorage.getItem("serverApi");
+  private serverApi = this.serverURI+"/admin";
 
   public getAllAdmins():Observable<IAdmin[]> {
 
