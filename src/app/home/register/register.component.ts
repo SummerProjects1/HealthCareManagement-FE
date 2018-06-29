@@ -44,10 +44,10 @@ userType: String;
     }
 
     //Required fields
-    if(!this.validateService.validateRegister(user)){
+    /*if(!this.validateService.validateRegister(user)){
      this.flashMessage.show("Please fill in all fields", {cssClass: 'alert-danger', timeout:4000});
       return false;
-    }
+    }*/
 
     if(!this.validateService.validateEmail(user.email)){
       this.flashMessage.show("Please enter valid email", {cssClass: 'alert-danger', timeout:4000});
