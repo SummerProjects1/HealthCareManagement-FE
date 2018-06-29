@@ -36,8 +36,8 @@ export class DoctorService
       firstName: doctor.firstName,
       lastName: doctor.lastName,
       username: doctor.username,
-      password: doctor.password,
-      retypepassword: doctor.retypepassword,
+      /*password: doctor.password,
+      retypepassword: doctor.retypepassword,*/
       contactNumber: doctor.contactNumber,
       email: doctor.email,
       address: doctor.address,
@@ -54,5 +54,28 @@ export class DoctorService
   getDoctorDetailsByEmail(email) {
     return this.http.get(this.serverApi+'/doctorDetails/'+email);
   
+  }
+
+  public editDoctor(doctor) {
+    console.log('id'+ doctor._id);
+    console.log('console '+ doctor);
+    let URI = `${this.serverApi}/editDoctor/${doctor._id}`;
+    let headers = new Headers;
+    let body = JSON.stringify({
+      firstName: doctor.firstName,
+      lastName: doctor.lastName,
+      username: doctor.username,
+      /*password: doctor.password,
+      retypepassword: doctor.retypepassword,*/
+      contactNumber: doctor.contactNumber,
+      email: doctor.email,
+      address: doctor.address,
+      specialization:doctor.specialization,
+      department:doctor.department,
+      gender:doctor.gender,
+      dob:doctor.dob,
+     });
+    headers.append('Content-Type', 'application/json');
+    return this.http.put(URI, body ,{headers: headers}).pipe(map(res => res.json()));
   }
 }  

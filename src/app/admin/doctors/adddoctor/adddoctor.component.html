@@ -41,7 +41,7 @@
                             </div>
 
                         <!-- need to validation for password and confirm password -->
-                        <div class="form-group row">
+                        <!--<div class="form-group row">
                                 <label class="control-label col-md-3">Password<span class="required"> * </span></label>
                                 <div class="col-md-5">
                                     <input type="password" [(ngModel)]="newDoctor.password" minlength="8" #password="ngModel" required name="newDoctor.password" data-required="1" placeholder=" Password" class="form-control input-height" />
@@ -65,7 +65,7 @@
                                             Confirm Password must contain minimum of 8 characters
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                              <!-- need to validation for password and confirm password -->
 
                              <div class="form-group row">
@@ -133,8 +133,8 @@
                             <div class="col-md-5">
                                 <select class="form-control input-height" [(ngModel)]="newDoctor.gender" name="gender">
                                     <option value="">Select...</option>
-                                    <option value="Category 1">Male</option>
-                                    <option value="Category 2">Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                             </div>
                         </div>
