@@ -30,7 +30,7 @@ export class PrescriptionService {
     return this.http.get(URI);
 }
 getPatientNames(patientName):Observable<any>{
-  return this.http.get("http://localhost:4003/patients/getPatientNames/"+patientName);
+  return this.http.get(this.serverURI + '/patients/getPatientNames/'+patientName);
 }
 
 getAppointmentDetailsByEmail(email: string) {
