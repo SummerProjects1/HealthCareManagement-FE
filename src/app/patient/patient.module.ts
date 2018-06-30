@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PatientGuard } from '../guards/patient.guard';
 import { PatientService } from '../services/patients.service';
+import { AdvertsModule } from '../adverts/adverts.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PatientService } from '../services/patients.service';
            { path: 'patient', canActivate:[PatientGuard], component: PatientComponent }
     ]),
     AppointmentModule,
-    PrescriptionModule
+    PrescriptionModule,
+    AdvertsModule
   ],
   declarations: [
     PatientComponent,

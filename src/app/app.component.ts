@@ -9,12 +9,15 @@ export class AppComponent  implements OnInit {
   title = 'Health Care Management'; 
   loginHappened;
   serverApi: string;
+  imagesManagerApi: string;
 
   constructor(private _router: Router){}
 
   ngOnInit() {
-    this.serverApi= "http://10.91.92.172:4003";
+    this.serverApi= "http://localhost:4003";
+    this.imagesManagerApi= "http://localhost:4002";
     localStorage.setItem("serverApi", this.serverApi);
+    localStorage.setItem("imagesManagerApi", this.imagesManagerApi);
     this.loginHappened = localStorage.getItem('loginHappened');
     if(this.loginHappened ==='true'){
       localStorage.setItem('loginHappened', 'true');

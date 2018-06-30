@@ -15,4 +15,6 @@ export interface IPatients {
     bloodPressure: string;
     sugger: string;
     Injury:string;
+    patientProfilePicOriginalName: string,
+    patientProfilePicFileName: string
 }

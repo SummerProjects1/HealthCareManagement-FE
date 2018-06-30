@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http,Headers } from '@angular/http';
+import { Http,Headers, RequestOptions, ResponseContentType } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IAdmin } from '../admin/admins';
@@ -47,4 +47,20 @@ export class AdminService
     return this.http.post(URI, body ,{headers: headers})
     .pipe(map(res => res.json()));
   }
-}  
+
+  public uploadAdvertImages(selectedFile){
+    let URI = `${this.serverApi}/uploadImages/`;
+    const fd  = new FormData();
+    fd.append('file', selectedFile);
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:4003/upload', fd, options); 
+  }
+  public getAdvertsImages(){
+    return this.http.get('http://localhost:3001/image/3a0056679c8480802f7f00e217761ef8.jpg', {
+      responseType: ResponseContentType.Blob
+    }); 
+  }
+
+} 

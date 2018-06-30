@@ -19,6 +19,10 @@
 <div class="container-fluid text-center">
 	<div class="row content">
 		<div class="col-sm-2 sidenav">
+			<br>
+			<div class="well">
+					<img [src]="profilePic" width="100px" height="100 px" >
+			</div>
 			<br> <br>
 			<button type="button" name="button" class="btn btn-primary"
 				(click)="shown = 'DASHBOARD'">Home</button>
@@ -65,10 +69,10 @@
 		</div>
 		<div class="col-sm-2 sidenav">
 			<div class="well">
-				<p>ADS</p>
+				<app-add-advert></app-add-advert>
 			</div>
 			<div class="well">
-				<p>ADS</p>
+				<app-list-advert></app-list-advert>
 			</div>
 		</div>
 	</div>

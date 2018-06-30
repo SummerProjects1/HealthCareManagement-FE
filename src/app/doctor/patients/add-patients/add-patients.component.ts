@@ -39,7 +39,9 @@ export class AddPatientsComponent implements OnInit {
       bloodGroup: '',
       bloodPressure: '',
       sugger: '',
-      Injury: ''
+      Injury: '',
+      patientProfilePicOriginalName:'',
+      patientProfilePicFileName: ''
   }
 }
 
