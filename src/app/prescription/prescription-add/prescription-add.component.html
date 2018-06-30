@@ -26,11 +26,6 @@
           <label>Patient</label>
         </div>
         <div class="col-sm-4">
-          <!-- <select class="selectpicker" title="Select patient" style="width:150px" [(ngModel)]="selectPatient" name="selectPatient">
-              <option value="">Select Patient</option>
-            <option>Patient1</option>
-            <option>PAtient2</option>
-          </select> -->
           <input class="input-field"  type="text" [(ngModel)]="patientName" name="patientName" (keyup)=getPatientNames()>
         </div>
         <div class="suggestions" *ngIf="patientList.length > 0">

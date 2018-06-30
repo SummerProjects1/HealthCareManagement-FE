@@ -1,3 +1,10 @@
 .editbtn{
     margin-left:5px;
 }
+ .deletebtn{
+    margin-left:5px;
+ }
+ .viewbtn{
+    background:grey;
+ }
+ 

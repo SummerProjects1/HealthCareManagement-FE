@@ -5,8 +5,11 @@ export interface IPrescription{
     patientFName: String;
     patientLName: String;
     patientEmail: String;
+    patientAge: string;
+    patientGender:string;
     doctorFName: String;
     doctorLName: String;
     doctorEmail: String;
     medication: String;
+
 }

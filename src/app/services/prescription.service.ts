@@ -8,6 +8,10 @@ import { IPrescription } from '../models/prescription';
   providedIn: 'root'
 })
 export class PrescriptionService {
+  [x: string]: any;
+
+  _prescriptionList: IPrescription[]=[];
+  ID:number;
 
   constructor(private http: Http) { }
 
@@ -16,7 +20,7 @@ export class PrescriptionService {
 
   savePrescriptionDetails(prescriptionDetails){
    let headers = new Headers();
-   headers.append('Cntent-Type', 'application/json');
+   headers.append('Content-Type', 'application/json');
    return this.http.post(this.serverApi+'/addPrescription', prescriptionDetails, {headers: headers})
 
   }
@@ -32,4 +36,37 @@ getPatientNames(patientName):Observable<any>{
 getAppointmentDetailsByEmail(email: string) {
   return this.http.get(this.serverApi+'/prescriptListFilter/'+email);
 } 
+
+public deletePrescription(PrescriptionId : string) {
+  let URI = `${this.serverApi}/deletePrescription/${PrescriptionId}`;
+    let headers = new Headers;
+    headers.append('Content-Type', 'application/json');
+    return this.http.delete(URI, {headers})
+    .pipe(map(res => res.json()));
+}
+
+
+public editPrescription(prescription) {
+  
+  console.log("In edit service....")
+  let URI = `${this.serverApi}/editPrescription/${prescription._id}`;
+  let headers = new Headers;
+  let body = JSON.stringify({
+
+    prescriptionDate: prescription.prescriptionDate,
+    prescriptionTime: prescription.prescriptionTime,
+    patientFName: prescription. patientFName,
+    patientLName:prescription.patientLName,
+    patientEmail:prescription.patientEmail,
+    doctorFName:prescription.doctorFName,
+    doctorLName:prescription. doctorLName,
+    doctorEmail:prescription. doctorEmail,
+    medication: prescription.medication,
+  
+   });
+  console.log("in service.........");
+  headers.append('Content-Type', 'application/json');
+  return this.http.put(URI, body ,{headers: headers}).pipe(map(res => res.json()));
+}
+
 }

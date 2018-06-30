@@ -13,7 +13,7 @@ export class AppComponent  implements OnInit {
   constructor(private _router: Router){}
 
   ngOnInit() {
-    this.serverApi= "http://10.91.92.172:4003";
+    this.serverApi= "http://localhost:4003";
     localStorage.setItem("serverApi", this.serverApi);
     this.loginHappened = localStorage.getItem('loginHappened');
     if(this.loginHappened ==='true'){
