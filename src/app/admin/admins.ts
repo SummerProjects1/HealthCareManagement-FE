@@ -3,9 +3,9 @@ export interface IAdmin {
     firstName: string;
     lastName: string;
     username: string;
-    password: string;
-    retypepassword: string;
+    /*password: string;
+    retypepassword: string;*/
     contactNumber: number;
     email: string;
-    address: string;
+    //address: string;
 }

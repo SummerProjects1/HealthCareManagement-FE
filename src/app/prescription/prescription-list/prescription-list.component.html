@@ -1,3 +1,7 @@
+<div class="row">
+  <h2>Prescription List</h2><hr/>
+</div>
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -5,61 +9,69 @@
       <th scope="col">Time</th>
       <th scope="col">Patient</th>
       <th scope="col">Doctor Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Gender</th>
       <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
-      <tr *ngFor = 'let prescription of  prescriptions'>
+    <tr *ngFor="let prescription of  prescriptions ">
       <td>{{prescription.prescriptionDate}}</td>
       <td>{{prescription.prescriptionTime}}</td>
       <td>{{prescription.patientFName}}</td>
       <td>{{prescription.doctorFName}}</td>
-      <!--<td>Doctor1</td>-->
-      <td> 
-        <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#prescriptionModal" (click)=getPrescriptionDetails(prescription)> View Prescription</button>
-        <button class="btn btn-info btn-lg editbtn" *ngIf = 'loginBy == "doctor"'> Edit</button> 
+      <td>{{prescription.patientAge}}</td>
+      <td>{{prescription.patientGender}}</td>
+      <td>
+        <button class="btn btn-info viewbtn" data-toggle="modal" data-target="#prescriptionModal" (click)=getPrescriptionDetails(prescription)>
+        View Prescription</button>
+        <button class="btn btn-info editbtn" *ngIf='loginBy == "doctor"' data-toggle="modal" data-target="#editPrescriptionModal"
+          (click)="showEditForm(prescription)"> Edit</button>
+          <button class="btn btn-danger deletebtn" (click) = "deletePrescription(prescription); $event.stopPropagation();">Delete</button>
       </td>
+      
     </tr>
-    
-    <!--modal section-->
-    <div class = "modal" id = "prescriptionModal" tabindex="-1" *ngIf='selectedPrescription !== undefined'>
-      <div class = "modal-dialog">
 
-        <!--modal content-->
-        <div class = "modal-content">
-          <div class = "modal-header">
+    <!--prescription modal section-->
+    <div class="modal" id="prescriptionModal" tabindex="-1" *ngIf='selectedPrescription !== undefined'>
+      <div class="modal-dialog">
+
+        <!--priscription modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
             <button class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title"> Prescription</h4><hr/>
+            <h4 class="modal-title"> Prescription</h4>
+            <hr/>
             <div class="row">
-                <div class="col-sm-4 pull-left">
-                  <p>Patient Name: {{selectedPrescription.patientFName}}</p>
-                  <p>Age:12</p>
-                  <p>Gender:Male</p>
-                </div>
-                <div class="col-sm-4 pull-right">
-                  <p>Doctor Name: {{selectedPrescription.doctorFName}}</p>
-                  <p>Date: {{selectedPrescription.prescriptionDate}}</p>
-                  <p>Time: {{selectedPrescription.prescriptionTime}}</p>
-                </div>
+              <div class="col-sm-4 pull-left">
+                <p>Patient Name: {{selectedPrescription.patientFName}}</p>
+                <p>Patient Age: {{selectedPrescription.patientAge}}</p>
+                <p>Patient Gender: {{selectedPrescription.patientGender}}</p>
               </div>
+              <div class="col-sm-4 pull-right">
+                <p>Doctor Name: {{selectedPrescription.doctorFName}}</p>
+                <p>Date: {{selectedPrescription.prescriptionDate}}</p>
+                <p>Time: {{selectedPrescription.prescriptionTime}}</p>
+              </div>
+            </div>
           </div>
 
-          <!--modal body section-->
+          <!--prescription modal body section-->
           <div class="modal-body">
             <div class="row">
-              <div class = "col-sm-2">
+              <div class="col-sm-2">
                 <p>Medication</p>
               </div>
-              <div class = "col-sm-8">
-               <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" cols="500" name="prescriptionListMedication">
+              <div class="col-sm-8">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" cols="500" name="prescriptionListMedication">
                   {{selectedPrescription.medication}}
                </textarea>
               </div>
             </div>
           </div>
 
-          <!--modal footer section-->
-          <div class = "modal-footer">
+          <!--prescription modal footer section-->
+          <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -67,7 +79,62 @@
     </div>
 
 
+    <!--edit prescription modal section-->
+    <div class="modal" id="editPrescriptionModal" tabindex="-1" *ngIf='selectedPrescription !== undefined'>
+      <div class="modal-dialog">
 
+        <!--edit priscription modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"> Edit Prescription</h4>
+            <hr/>
+          </div>
 
-   
-           
+          <!--edit prescription body section-->
+          <div class="modal-body">
+            <form class="form-inline" #frm="ngForm" (ngSubmit)="editPrescription(frm)" *ngIf="toggleEditForm">
+              <div class="row">
+                <div class="col-sm-2">
+                  <label>Date</label>
+                </div>
+                <div class="col-sm-4">
+                  <input class="input-field" type="date" placeholder="Date" [(ngModel)]="selectedPrescription.prescriptionDate" name="prescriptionDate">
+                </div>
+                <div class="col-sm-3">
+                  <label>Time</label>
+                </div>
+                <div class="col-sm-2">
+                  <input class="input-field" type="time" placeholder="Time" [(ngModel)]="selectedPrescription.prescriptionTime" name="prescriptionTime">
+                </div>
+              </div>
+              <br/>
+
+              <div class="row">
+                <div class="col-sm-2">
+                  <label>Patient</label>
+                </div>
+                <div class="col-sm-4">
+                  <input class="input-field" type="text" [(ngModel)]="selectedPrescription.patientFName" name="patientFName" >
+                </div>
+              </div>
+              <br/>
+
+              <div class="row">
+                <div class="col-sm-2">
+                  <label>Medication</label>
+                </div>
+                <div class="col-sm-6">
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" cols="50" [(ngModel)]="selectedPrescription.medication" name="medication"></textarea>
+                </div>
+              </div>
+              <br/>
+
+              <div class="row">
+                <button type="submit" class="btn btn-success">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>

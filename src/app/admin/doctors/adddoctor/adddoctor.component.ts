@@ -25,8 +25,8 @@ export class AdddoctorComponent implements OnInit {
       firstName: '',
       lastName: '',
       username: '',
-      password: '',
-      retypepassword: '',
+      /*password: '',
+      retypepassword: '',*/
       contactNumber: null,
       email: '',
       address: '',

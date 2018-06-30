@@ -36,11 +36,11 @@ export class AdminService
       firstName: admin.firstName,
       lastName: admin.lastName,
       username: admin.username,
-      password: admin.password,
-      retypepassword: admin.retypepassword,
+      /*password: admin.password,
+      retypepassword: admin.retypepassword,*/
       contactNumber: admin.contactNumber,
       email: admin.email,
-      address: admin.address
+      //address: admin.address
      });
     console.log(body);
     headers.append('Content-Type', 'application/json');
@@ -64,3 +64,24 @@ export class AdminService
   }
 
 } 
+  public editAdmin(admin) {
+    console.log('id'+ admin._id);
+    console.log('console '+ admin);
+    let URI = `${this.serverApi}/editAdmin/${admin._id}`;
+    let headers = new Headers;
+    let body = JSON.stringify({
+      firstName: admin.firstName,
+      lastName: admin.lastName,
+      username: admin.username,
+      /*password: admin.password,
+      retypepassword: admin.retypepassword,*/
+      contactNumber: admin.contactNumber,
+      email: admin.email,
+      //address: admin.address
+     });
+    console.log(body);
+    headers.append('Content-Type', 'application/json');
+    return this.http.put(URI, body ,{headers: headers}).pipe(map(res => res.json()));
+  }
+  
+}  

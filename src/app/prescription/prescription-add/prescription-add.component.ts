@@ -3,6 +3,7 @@ import { PrescriptionService} from '../../services/prescription.service';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import {IPatient} from '../../patient/patient';
+import { IPatients } from '../../models/patients';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class PrescriptionAddComponent implements OnInit {
   patientList: IPatient[] =[];
   patientName: String;
   patient: IPatient;
-  selectedPatient:IPatient;
+  selectedPatient:IPatients;
   data;
   successMessage: String;
   failMessage: String;
@@ -40,6 +41,8 @@ export class PrescriptionAddComponent implements OnInit {
       medication: this.medication,
       patientLName: this.selectedPatient.lastName,
       patientEmail: this.selectedPatient.email,
+      patientAge: this.selectedPatient.age,
+      patientGender: this.selectedPatient.gender,
       doctorFName: localStorage.getItem("userFName"),
       doctorLName: localStorage.getItem("userLName"),
       doctorEmail: localStorage.getItem("email")
@@ -49,7 +52,7 @@ export class PrescriptionAddComponent implements OnInit {
      .subscribe(data=>{
         var dataJson = data.json();
         if(dataJson.success){
-          this.successMessage = dataJson.msg;
+         //this.successMessage = dataJson.msg;
           this.flashMessage.show("Prescription added Successfully", {cssClass: 'alert-success', timeout:1000});  
         }else{
           this.failMessage = dataJson.msg;

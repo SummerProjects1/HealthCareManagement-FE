@@ -20,8 +20,117 @@
         <td> {{doctor.specialization}}</td>
         <td> {{doctor.contactNumber}}</td>
         <td> {{doctor.email}}</td>
-        <td> <button class="btn btn-warning">Edit</button></td>
+        <td> <button class="btn btn-warning" (click) = "showEditForm(doctor)" data-toggle="modal" data-target="#myModal">Edit</button></td>
         <td><button class="btn btn-danger" (click) = "deleteDoctor(doctor); $event.stopPropagation();">Delete</button></td>
       </tr>
     </tbody>
   </table>
+
+    <!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Admin Information</h4>
+      </div>
+      <div class="modal-body">
+          <form class="form-inline" #frm="ngForm" (ngSubmit)="editDoctor(frm)" *ngIf="toggleEditForm">
+          <div class="form-group">
+    
+            <div class="form-group">
+              <label for="">First Name:</label>
+              <input type="text" class="form-control"
+                name="firstName" value="" [ngModel]="selectedDoctor.firstName">
+            </div><br>
+    
+            <div class="form-group">
+              <label for="">Last Name:</label>
+              <input type="text" class="form-control"
+                name="lastName" value="" [ngModel]="selectedDoctor.lastName">
+            </div><br>
+    
+            <div class="form-group">
+              <label for="">Username:</label>
+              <input type="text" class="form-control"
+                name="username" value="" [ngModel]="selectedDoctor.username">
+            </div><br>
+    
+            <!--<div class="form-group">
+                <label for="">Password:</label>
+                <input type="text" class="form-control"
+                  name="password" value="" [ngModel]="selectedDoctor.password">
+            </div><br>
+    
+            <div class="form-group">
+                <label for="">Retype Password:</label>
+                <input type="text" class="form-control"
+                  name="retypepassword" value="" [ngModel]="selectedDoctor.retypepassword">
+            </div><br>-->
+    
+            <div class="form-group">
+                <label for="">Contact Number:</label>
+                <input type="text" class="form-control"
+                  name="contactNumber" value="" [ngModel]="selectedDoctor.contactNumber">
+            </div><br>
+            
+            <div class="form-group">
+                <label for="">Email ID:</label>
+                <input type="text" class="form-control"
+                  name="email" value="" [ngModel]="selectedDoctor.email">
+            </div><br>
+    
+            <div class="form-group">
+                <label for="">Address:</label>
+                <input type="text" class="form-control"
+                  name="address" value="" [ngModel]="selectedDoctor.address">
+            </div><br>
+
+            <div class="form-group">
+              <label for="">Specialization:</label>
+              <input type="text" class="form-control"
+                name="specialization" value="" [ngModel]="selectedDoctor.specialization">
+            </div><br>
+
+            <div class="form-group">
+              <label class="control-label col-md-3">Departments<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <select class="form-control input-height" [(ngModel)]="selectedDoctor.department" name="department">
+                                    <option value="">Select...</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Orthopedics">Orthopedics</option>
+                                    <option value="Gynaecology">Gynaecology</option>
+                                    <option value="Microbiology">Microbiology</option>
+                                    <option value="Radiotherapy">Radiotherapy</option>
+                                    <option value="Pharmacy">Pharmacy</option>
+                                </select>
+                            </div>
+            </div><br>
+
+            <div class="form-Gender">
+              <label class="control-label col-md-3">Gender<span class="required"> * </span></label>
+                            <div class="col-md-5">
+                                <select class="form-control input-height" [(ngModel)]="selectedDoctor.gender" name="gender">
+                                    <option value="">Select...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+            </div><br>
+
+            <br/><br/>
+            <button type="submit" name="button" class="btn btn-success">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  <button type="button" name="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				  </div>
+			  </form>
+      </div>
+      <!--<div class="modal-footer">
+          <button type="submit" name="button" class="btn btn-success" (click) = "showeditalert();showEditForm(selectedAdmin);" data-dismiss="modal">Save</button>
+          <button type="submit" name="button" class="btn btn-warning" data-dismiss="modal" (click) = "showEditForm(selectedAdmin)">Cancel</button>
+      </div>-->
+    </div>
+    
+  </div>
+</div>

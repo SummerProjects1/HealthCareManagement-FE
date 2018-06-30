@@ -3,8 +3,8 @@ export interface IDoctor {
     firstName: string;
     lastName: string;
     username: string;
-    password: string;
-    retypepassword: string;
+    /*password: string;
+    retypepassword: string;*/
     contactNumber: number;
     email: string;
     address: string;
