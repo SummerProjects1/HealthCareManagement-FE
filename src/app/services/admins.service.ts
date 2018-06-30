@@ -6,8 +6,8 @@ import { map } from 'rxjs/operators';
 import { IAdmin } from '../admin/admins';
 
 @Injectable()
-export class AdminService
-{
+export class AdminService {
+
   constructor(private http: Http) { }
 
   serverURI: string = localStorage.getItem("serverApi");
@@ -19,7 +19,7 @@ export class AdminService
     return this.http.get(URI)
         .pipe(map(res => res.json()))
         .pipe(map(res => <IAdmin[]>res.admins));
-}
+  }
 
   public deleteAdmin(AdminId : string) {
     let URI = `${this.serverApi}/deleteAdmin/${AdminId}`;
@@ -63,7 +63,6 @@ export class AdminService
     }); 
   }
 
-} 
   public editAdmin(admin) {
     console.log('id'+ admin._id);
     console.log('console '+ admin);
