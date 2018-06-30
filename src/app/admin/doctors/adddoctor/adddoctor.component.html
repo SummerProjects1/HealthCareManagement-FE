@@ -41,16 +41,16 @@
                             </div>
 
                         <!-- need to validation for password and confirm password -->
-                        <!--<div class="form-group row">
+                        <div class="form-group row">
                                 <label class="control-label col-md-3">Password<span class="required"> * </span></label>
                                 <div class="col-md-5">
                                     <input type="password" [(ngModel)]="newDoctor.password" minlength="8" #password="ngModel" required name="newDoctor.password" data-required="1" placeholder=" Password" class="form-control input-height" />
-                                    <div *ngIf="password.errors?.required && password.touched" class="alert alert-danger">
+                                    <!--<div *ngIf="password.errors?.required && password.touched" class="alert alert-danger">
                                             Password is required
                                     </div>
                                     <div *ngIf="password.errors?.minlength && password.touched" class="alert alert-danger">
                                             Password must contain minimum of 8 characters
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
     
@@ -58,14 +58,14 @@
                                 <label class="control-label col-md-3">Re-Type Password<span class="required"> * </span></label>
                                 <div class="col-md-5">
                                     <input type="password" [(ngModel)]="newDoctor.retypepassword" minlength="8" #retypepassword="ngModel" required name="newDoctor.retypepassword" validateEqual="password" data-required="1" placeholder=" Re-Type Password" class="form-control input-height" /> 
-                                    <div *ngIf="retypepassword.errors?.required && retypepassword.touched" class="alert alert-danger">
+                                   <!-- <div *ngIf="retypepassword.errors?.required && retypepassword.touched" class="alert alert-danger">
                                             Confirm Password is required
                                     </div>
                                     <div *ngIf="retypepassword.errors?.minlength && retypepassword.touched" class="alert alert-danger">
                                             Confirm Password must contain minimum of 8 characters
-                                    </div>
+                                    </div>-->
                                 </div>
-                            </div>-->
+                            </div>
                              <!-- need to validation for password and confirm password -->
 
                              <div class="form-group row">

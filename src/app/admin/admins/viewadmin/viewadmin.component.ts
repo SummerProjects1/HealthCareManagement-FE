@@ -48,8 +48,8 @@ export class ViewadminComponent implements OnInit {
         firstName: form.value.firstName,
         lastName: form.value.lastName,
         username: form.value.username,
-        /*password: form.value.password,
-        retypepassword: form.value.retypepassword,*/
+        password: form.value.password,
+        retypepassword: form.value.retypepassword,
         contactNumber: form.value.contactNumber,
         email: form.value.email,
         //address: form.value.address,

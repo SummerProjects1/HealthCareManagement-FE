@@ -36,8 +36,8 @@ export class AdminService {
       firstName: admin.firstName,
       lastName: admin.lastName,
       username: admin.username,
-      /*password: admin.password,
-      retypepassword: admin.retypepassword,*/
+      password: admin.password,
+      retypepassword: admin.retypepassword,
       contactNumber: admin.contactNumber,
       email: admin.email,
       //address: admin.address
@@ -72,8 +72,8 @@ export class AdminService {
       firstName: admin.firstName,
       lastName: admin.lastName,
       username: admin.username,
-      /*password: admin.password,
-      retypepassword: admin.retypepassword,*/
+      password: admin.password,
+      retypepassword: admin.retypepassword,
       contactNumber: admin.contactNumber,
       email: admin.email,
       //address: admin.address

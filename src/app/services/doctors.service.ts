@@ -36,8 +36,8 @@ export class DoctorService
       firstName: doctor.firstName,
       lastName: doctor.lastName,
       username: doctor.username,
-      /*password: doctor.password,
-      retypepassword: doctor.retypepassword,*/
+      password: doctor.password,
+      retypepassword: doctor.retypepassword,
       contactNumber: doctor.contactNumber,
       email: doctor.email,
       address: doctor.address,
@@ -65,8 +65,8 @@ export class DoctorService
       firstName: doctor.firstName,
       lastName: doctor.lastName,
       username: doctor.username,
-      /*password: doctor.password,
-      retypepassword: doctor.retypepassword,*/
+      password: doctor.password,
+      retypepassword: doctor.retypepassword,
       contactNumber: doctor.contactNumber,
       email: doctor.email,
       address: doctor.address,
