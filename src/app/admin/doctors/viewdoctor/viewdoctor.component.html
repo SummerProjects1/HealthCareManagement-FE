@@ -9,7 +9,8 @@
         <th>Specialization</th>
         <th>Phone</th>
         <th>Email</th>
-        <th colspan = "2">Options</th>
+        <th></th>
+        <th colspan = "2" *ngIf='loginBy == "admin"'>Options</th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +21,9 @@
         <td> {{doctor.specialization}}</td>
         <td> {{doctor.contactNumber}}</td>
         <td> {{doctor.email}}</td>
-        <td> <button class="btn btn-warning" (click) = "showEditForm(doctor)" data-toggle="modal" data-target="#myModal">Edit</button></td>
-        <td><button class="btn btn-danger" (click) = "deleteDoctor(doctor); $event.stopPropagation();">Delete</button></td>
+        <td><a  data-toggle="modal"  data-target="#doctorModal" (click)="showDoctorDetails(doctor)"> View Profile</a></td>
+        <td *ngIf='loginBy == "admin"'> <button class="btn btn-warning" (click) = "showEditForm(doctor)" data-toggle="modal" data-target="#myModal">Edit</button></td>
+        <td *ngIf='loginBy == "admin"'><button class="btn btn-danger" (click) = "deleteDoctor(doctor); $event.stopPropagation();">Delete</button></td>
       </tr>
     </tbody>
   </table>
@@ -134,3 +136,61 @@
     
   </div>
 </div>
+
+<div class = "modal" id = "doctorModal" tabindex="-1" *ngIf='selectedDoctor !== undefined'>
+  <div class = "modal-dialog">
+
+    <!--modal content-->
+    <div class = "modal-content">
+    <div class = "modal-header">
+      <button class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title"> Doctor Profile</h4><hr/>
+      <div class="row">
+        <div class="col-sm-4 pull-left">
+        <p>First Name: {{selectedDoctor.firstName}}</p>
+        <p>Last Name: {{selectedDoctor.lastName}}</p>
+        <p>Gender: {{selectedDoctor.gender}}</p>
+        </div>
+        <div class="col-sm-4 pull-right">
+        <p>Specialisation: {{selectedDoctor.specialization}}</p>
+        <p>Department: {{selectedDoctor.department}}</p>
+        <p></p>
+        </div>
+      </div>
+    </div>
+
+    <!--modal body section-->
+    <div class="modal-body">
+      <div class="row">
+      <div class = "col-sm-2">
+        <p>Address</p>
+      </div>
+      <div class = "col-sm-8">
+       <textarea class="form-control" id="address" rows="2" cols="300" name="address" readonly>{{selectedDoctor.address}}</textarea>
+      </div>
+      </div>
+      <div class="row">
+        <div class = "col-sm-2">
+          <p>Email</p>
+        </div>
+        <div class = "col-sm-8">
+         <p>{{selectedDoctor.email}}</p>
+        </div>
+      </div>
+      <div class="row">
+          <div class = "col-sm-2">
+            <p>Contact Number</p>
+          </div>
+          <div class = "col-sm-8">
+           <p>{{selectedDoctor.contactNumber}}</p>
+          </div>
+        </div>
+    </div>
+
+    <!--modal footer section-->
+    <div class = "modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+    </div>
+  </div>
+  </div>

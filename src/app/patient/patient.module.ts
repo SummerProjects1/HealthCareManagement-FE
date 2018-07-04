@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { PatientGuard } from '../guards/patient.guard';
 import { PatientService } from '../services/patients.service';
 import { AdvertsModule } from '../adverts/adverts.module';
+import { AdminModule } from '../admin/admin.module';
+import { DoctorsModule } from '../admin/doctors/doctors.module';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { AdvertsModule } from '../adverts/adverts.module';
     ]),
     AppointmentModule,
     PrescriptionModule,
-    AdvertsModule
+    AdvertsModule,
+    AdminModule,
+    DoctorsModule
   ],
   declarations: [
     PatientComponent,

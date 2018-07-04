@@ -13,6 +13,7 @@ export class ViewdoctorComponent implements OnInit {
   private doctors: IDoctor[] = [];
   toggleEditForm = false;
   selectedDoctor: IDoctor;
+  loginBy:string = localStorage.getItem("loginBy");
 
   constructor( private _doctorService: DoctorService ) { }
 
@@ -37,11 +38,12 @@ export class ViewdoctorComponent implements OnInit {
   /*showeditalert(){
       alert('Doctor details has been successfully edited');
     }*/
+    showDoctorDetails(doctor){
+      this.selectedDoctor = doctor;
+    }
 
   editDoctor(form) {
-      console.log('hello');
-      console.log('ddddd' + form.value._id);
-      
+     
       let doctor: IDoctor = {
         _id: this.selectedDoctor._id,
         firstName: form.value.firstName,
@@ -59,11 +61,16 @@ export class ViewdoctorComponent implements OnInit {
       };
       this._doctorService.editDoctor(doctor)
             .subscribe( result => {
-            console.log('updated successfully');
-            this.ngOnInit();
+              var data = result;
+              if(data.success){
+                this.ngOnInit();
+                alert('Doctor details has been successfully edited');
+              }else{
+                alert("something went wrong");
+              }
           });
 
-      alert('Doctor details has been successfully edited');
+      
       //this.toggleEditForm = !this.toggleEditForm;
     }
 }
