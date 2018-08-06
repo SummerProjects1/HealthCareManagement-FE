@@ -12,6 +12,9 @@ export class AuthService {
   serverApi: string = localStorage.getItem("serverApi");
   usersURI = this.serverApi+'/users';
 
+  backEndLoggedIn =  localStorage.getItem("backEndLoggedIn");
+  loginTempToken = localStorage.getItem("loginTempToken");
+
   constructor(private http:Http) { }
 
   registerUser(user){
@@ -69,6 +72,15 @@ export class AuthService {
     console.log(_json);
     headers.append('Content-Type', 'application/json');
      return this.http.put(this.usersURI+'/resetPwd/', _json, {headers: headers});
+   }
+
+   logoutWork(){
+    let headers = new Headers();
+   var user = JSON.parse(localStorage.getItem('user'));
+   console.log(user.username)
+   let _json ={userName: user.username, "backEndLoggedIn": this.backEndLoggedIn,"loginTempToken":this.loginTempToken};
+    headers.append('Content-Type', 'application/json');
+     return this.http.put(this.usersURI+'/logout/', _json, {headers: headers});
    }
 
   /* logout(){

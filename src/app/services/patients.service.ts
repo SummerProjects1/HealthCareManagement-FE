@@ -13,6 +13,9 @@ export class PatientService {
   serverURI: string = localStorage.getItem("serverApi");
   private serverApi = this.serverURI+"/patients";
 
+  backEndLoggedIn =  localStorage.getItem("backEndLoggedIn");
+  loginTempToken = localStorage.getItem("loginTempToken");
+
   public getAllPatients():Observable<IPatients[]> {
 
     let URI = `${this.serverApi}/getPatient/`;
@@ -27,8 +30,10 @@ getPatientDetailsByEmail(email) {
 }
   public deletePatient(patientId : string) {
     let URI = `${this.serverApi}/deletePatient/${patientId}`;
-      let headers = new Headers;
-      headers.append('Content-Type', 'application/json');
+    let headers = new Headers;
+    headers.append('Content-Type', 'application/json');
+    headers.append('backEndLoggedIn', this.backEndLoggedIn);
+    headers.append('loginTempToken', this.loginTempToken);
       return this.http.delete(URI, {headers})
       .pipe(map(res => res.json()));
   }
@@ -61,9 +66,10 @@ getPatientDetailsByEmail(email) {
 
 
 savePatientDetails(patient) {
- 
     let headers = new Headers;
     headers.append('Content-Type', 'application/json');
+    headers.append('backEndLoggedIn', this.backEndLoggedIn);
+    headers.append('loginTempToken', this.loginTempToken);
     return this.http.put(this.serverApi+'/editPatient/' + patient._id, patient, { headers: headers});
 }
 

@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
          timeout: 5000});
          localStorage.setItem("loginBy", data.user.userType);
          localStorage.setItem("userEmail", data.user.email);
+         localStorage.setItem("backEndLoggedIn", data.user.isLoggedIn);
+         localStorage.setItem("loginTempToken", data.user.loggedInToken);
          this._homeComponent.ngOnInit();
          this.navigateUrl = data.user.userType;
          this.router.navigate([this.navigateUrl]);         
